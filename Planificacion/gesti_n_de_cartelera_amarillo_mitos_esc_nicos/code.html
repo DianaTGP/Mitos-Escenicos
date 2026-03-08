@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Mitos Escénicos - Gestión de Cartelera</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#E3B04B", 
+                        "background-light": "#f8f7f5",
+                        "background-dark": "#000000", 
+                        "surface": "#111111",
+                        "border-color": "#222222"
+                    },
+                    fontFamily: {
+                        "display": ["Be Vietnam Pro", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Be Vietnam Pro', sans-serif;
+            background-color: #000000;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .active-nav {
+            background-color: rgba(227, 176, 75, 0.15);
+            border-right: 3px solid #E3B04B;
+        }
+    </style>
+</head>
+<body class="bg-background-dark text-white font-display antialiased">
+<div class="flex h-screen overflow-hidden">
+<!-- Sidebar Navigation -->
+<aside class="w-72 flex-shrink-0 border-r border-border-color bg-background-dark flex flex-col">
+<div class="p-8">
+<div class="flex items-center gap-3 mb-10">
+<div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-black">
+<span class="material-symbols-outlined font-bold">theater_comedy</span>
+</div>
+<div>
+<h1 class="text-lg font-bold tracking-tight text-white uppercase">Mitos Escénicos</h1>
+<p class="text-xs text-primary/80 font-medium">Panel Administrativo</p>
+</div>
+</div>
+<nav class="space-y-2">
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-400 hover:text-white hover:bg-white/5 transition-all" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-sm font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-white active-nav transition-all" href="#">
+<span class="material-symbols-outlined text-primary">confirmation_number</span>
+<span class="text-sm font-medium">Cartelera</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-400 hover:text-white hover:bg-white/5 transition-all" href="#">
+<span class="material-symbols-outlined">groups</span>
+<span class="text-sm font-medium">Elenco</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-400 hover:text-white hover:bg-white/5 transition-all" href="#">
+<span class="material-symbols-outlined">calendar_month</span>
+<span class="text-sm font-medium">Calendario</span>
+</a>
+<div class="pt-6 mt-6 border-t border-border-color">
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-400 hover:text-white hover:bg-white/5 transition-all" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-sm font-medium">Configuración</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-red-400 hover:bg-red-400/10 transition-all" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="text-sm font-medium">Cerrar Sesión</span>
+</a>
+</div>
+</nav>
+</div>
+<div class="mt-auto p-6">
+<div class="bg-surface border border-border-color p-4 rounded-xl">
+<p class="text-xs text-gray-500 mb-2">Usuario activo</p>
+<div class="flex items-center gap-3">
+<img alt="Avatar del administrador" class="w-8 h-8 rounded-full border border-primary/30" data-alt="Ilustración de avatar de perfil de un administrador" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJrrsF5X9McRxzgXMmHTkm4lYUvCDN9WK3r-R7IUUe-zQGtn7kKMpF-zaiFNToLIaf2fyHKczGCr0wqnq9T2Hn6kxrEX8IbviUbGwD5P571TldpAMGroOM6gf12z7RCh5dU0Ocw7arQqd8hnBAVhzgTXyyF6W0thCsf9OHpD8in9uXgPJcqQRUC_nULvPoWca5b5caP72ZSTl1QHwzQccfRUVcXAQk0On56_BmKtJP3PSH2fDw8tL37g3tEPCfHJ48WJS2V0FfEo0a"/>
+<div class="overflow-hidden">
+<p class="text-sm font-bold truncate">Director General</p>
+<p class="text-[10px] text-gray-400 truncate text-primary/70">Admin Master</p>
+</div>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col overflow-y-auto bg-background-dark">
+<!-- Header -->
+<header class="flex items-center justify-between px-10 py-8 sticky top-0 bg-background-dark/80 backdrop-blur-md z-10 border-b border-border-color">
+<div>
+<h2 class="text-3xl font-black text-white tracking-tight">Gestión de Cartelera</h2>
+<p class="text-gray-400 text-sm mt-1">Administra las obras actuales, ensayos y programación histórica.</p>
+</div>
+<button class="bg-primary hover:bg-primary/90 text-black font-bold px-6 py-3 rounded-lg flex items-center gap-2 transition-all shadow-[0_0_20px_rgba(227,176,75,0.2)]">
+<span class="material-symbols-outlined">add_circle</span>
+                    Agregar Nueva Obra
+                </button>
+</header>
+<!-- Filters & Search -->
+<section class="px-10 py-6">
+<div class="flex flex-wrap gap-4 items-center justify-between">
+<div class="relative flex-1 max-w-md">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-gray-500">search</span>
+<input class="w-full bg-surface border border-border-color rounded-lg py-3 pl-12 pr-4 text-white placeholder-gray-500 focus:border-primary focus:ring-0 transition-all" placeholder="Buscar por título, director o género..." type="text"/>
+</div>
+<div class="flex gap-2">
+<button class="flex items-center gap-2 px-4 py-2 border border-border-color rounded-lg text-sm text-gray-300 hover:bg-surface transition-all">
+<span class="material-symbols-outlined text-sm">filter_list</span> Filtrar
+                        </button>
+<button class="flex items-center gap-2 px-4 py-2 border border-border-color rounded-lg text-sm text-gray-300 hover:bg-surface transition-all">
+<span class="material-symbols-outlined text-sm">sort_by_alpha</span> Ordenar
+                        </button>
+</div>
+</div>
+</section>
+<!-- Table Section -->
+<section class="px-10 pb-10">
+<div class="bg-surface rounded-xl border border-border-color overflow-hidden">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-white/5 border-b border-border-color">
+<th class="px-6 py-4 text-sm font-semibold text-primary uppercase tracking-wider">Título</th>
+<th class="px-6 py-4 text-sm font-semibold text-primary uppercase tracking-wider">Director</th>
+<th class="px-6 py-4 text-sm font-semibold text-primary uppercase tracking-wider">Género</th>
+<th class="px-6 py-4 text-sm font-semibold text-primary uppercase tracking-wider">Fecha de Estreno</th>
+<th class="px-6 py-4 text-sm font-semibold text-primary uppercase tracking-wider text-center">Estado</th>
+<th class="px-6 py-4 text-sm font-semibold text-primary uppercase tracking-wider text-right">Acciones</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-border-color">
+<!-- Row 1 -->
+<tr class="hover:bg-white/5 transition-colors group">
+<td class="px-6 py-5">
+<div class="flex items-center gap-4">
+<div class="w-12 h-16 bg-zinc-800 rounded flex-shrink-0 bg-cover bg-center border border-white/10 group-hover:border-primary/50 transition-all" data-alt="Cartel teatral de Macbeth en tonos oscuros" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCzn-1EnG8pHac5lZnY8e5H0T0QtpVgaJHE-zPCMP5KuTH0WZ-WPq9vo0IFawqb3rDKtgm35O74kka7K8srMBpLvUbBr_8WJm5ykSAvVvColrKVNoRJWqdcOQ5w-JRdfAmztHLwd91dG5bN2zA8pobR2RqM_cZ9ylegMkGZc-z0CL8NxrvXUnagxdCZhSFGSGQFHab5ZKV7JdBJ9iuxdsJHYRpUPvZIES_dGx-J2-a8dpKeHfl54z8sI0HEcrfHRAoG_y-lZMANA89y')"></div>
+<div>
+<p class="font-bold text-white text-base">Macbeth</p>
+<p class="text-xs text-gray-500 italic">"The Tragedy of Macbeth"</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5 text-gray-300">William Shakespeare</td>
+<td class="px-6 py-5 text-gray-300">Tragedia</td>
+<td class="px-6 py-5 text-gray-300 font-mono text-sm">12 Oct 2023</td>
+<td class="px-6 py-5 text-center">
+<span class="inline-flex items-center rounded-full bg-green-900/30 px-3 py-1 text-xs font-medium text-green-400 border border-green-900/50">
+                                        En Proyección
+                                    </span>
+</td>
+<td class="px-6 py-5 text-right space-x-2">
+<button class="p-2 text-gray-400 hover:text-primary transition-colors bg-white/5 rounded-lg border border-border-color" title="Editar">
+<span class="material-symbols-outlined text-lg">edit</span>
+</button>
+<button class="p-2 text-gray-400 hover:text-red-500 transition-colors bg-white/5 rounded-lg border border-border-color" title="Eliminar">
+<span class="material-symbols-outlined text-lg">delete</span>
+</button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-white/5 transition-colors group">
+<td class="px-6 py-5">
+<div class="flex items-center gap-4">
+<div class="w-12 h-16 bg-zinc-800 rounded flex-shrink-0 bg-cover bg-center border border-white/10 group-hover:border-primary/50 transition-all" data-alt="Cartel de Hamlet con una calavera clásica" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDXal7M7emxwcXxVtJJiQgXgLP_h4hRqTo3P3Jd-WZZkV9tWx3DceyHkLgkj5OiB7bSDKBgdwfvurvrk7fGhtazjHRTotBk87AKtfyL9KhMAifAdhj3MgE6YF1ezOSaISFloBfVpmK0fggF42ToO0xNqMPjPFAvJqdjQo1fmahr8Q1zHuL9MZvF_seqHuOUOga-J7iNQsaWebcMGQKOtSC6WsDZgoOBsZy25qbdDeigi6lrj83C3Vso8uFKQTSbbAI5Yh_5izgXbNJa')"></div>
+<div>
+<p class="font-bold text-white text-base">Hamlet</p>
+<p class="text-xs text-gray-500 italic">"The Prince of Denmark"</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5 text-gray-300">William Shakespeare</td>
+<td class="px-6 py-5 text-gray-300">Tragedia</td>
+<td class="px-6 py-5 text-gray-300 font-mono text-sm">05 Nov 2023</td>
+<td class="px-6 py-5 text-center">
+<span class="inline-flex items-center rounded-full bg-yellow-900/30 px-3 py-1 text-xs font-medium text-yellow-400 border border-yellow-900/50">
+                                        Ensayos
+                                    </span>
+</td>
+<td class="px-6 py-5 text-right space-x-2">
+<button class="p-2 text-gray-400 hover:text-primary transition-colors bg-white/5 rounded-lg border border-border-color" title="Editar">
+<span class="material-symbols-outlined text-lg">edit</span>
+</button>
+<button class="p-2 text-gray-400 hover:text-red-500 transition-colors bg-white/5 rounded-lg border border-border-color" title="Eliminar">
+<span class="material-symbols-outlined text-lg">delete</span>
+</button>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-white/5 transition-colors group">
+<td class="px-6 py-5">
+<div class="flex items-center gap-4">
+<div class="w-12 h-16 bg-zinc-800 rounded flex-shrink-0 bg-cover bg-center border border-white/10 group-hover:border-primary/50 transition-all" data-alt="Imagen abstracta dorada representando un sueño" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDo4PSpFeCfTdm4nISY7sz5jVaPxtW5GVXQFbtOW7EDqG1xTwuf-uaiNXTime8gg_V6pytN_9oV77xVaGnnuxwzydmMy2Xblez9oamQ8fopsVZRTEQ48K6xp7NI7hT8FgC8uEvVgRvs6HovgY3LnHtKQlP57Azj_T7qYyDSDBoyS7RfQPrdNz8CB0QRBRhfnRa1PK5lmc77_OdIMjQX9qVyzf6Y3fj21sEZaSklABAKiZtXNDVzTqHfY36FO4qC_QkxtQ_P1KOS8xbn')"></div>
+<div>
+<p class="font-bold text-white text-base">La Vida es Sueño</p>
+<p class="text-xs text-gray-500 italic">Calderón de la Barca</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5 text-gray-300">Pedro Calderón</td>
+<td class="px-6 py-5 text-gray-300">Filosófico</td>
+<td class="px-6 py-5 text-gray-300 font-mono text-sm">20 Sep 2023</td>
+<td class="px-6 py-5 text-center">
+<span class="inline-flex items-center rounded-full bg-gray-800/50 px-3 py-1 text-xs font-medium text-gray-400 border border-gray-700">
+                                        Finalizada
+                                    </span>
+</td>
+<td class="px-6 py-5 text-right space-x-2">
+<button class="p-2 text-gray-400 hover:text-primary transition-colors bg-white/5 rounded-lg border border-border-color" title="Editar">
+<span class="material-symbols-outlined text-lg">edit</span>
+</button>
+<button class="p-2 text-gray-400 hover:text-red-500 transition-colors bg-white/5 rounded-lg border border-border-color" title="Eliminar">
+<span class="material-symbols-outlined text-lg">delete</span>
+</button>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-white/5 transition-colors group">
+<td class="px-6 py-5">
+<div class="flex items-center gap-4">
+<div class="w-12 h-16 bg-zinc-800 rounded flex-shrink-0 bg-cover bg-center border border-white/10 group-hover:border-primary/50 transition-all" data-alt="Escena teatral dramática con luz puntual" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCG10fiYzoiyHuxZoBbUVUIf_xJx62zhhzPhlSPII3LHoCQO_9tgx9ijn9ei5qzOh_8PuJ-Rb1veOVbP9rGpyi2P4eEphCOIj_yyWCeEEAFXlXn4COB_9Dt4aNcKMJIJIuqnr8F9AsDZN3Y4QEp5aw9o1pLxdKHv-XJMKg-S_qjVfDkjqTmCDmg59ZfdIADQQ37LwJETkb9LPF0zPJ--u1uun4NYCKQ_4BZoGpeND7_m69CgXeXcweMmJOo0WxNAO93Q2iRPyDX3Byb')"></div>
+<div>
+<p class="font-bold text-white text-base">Don Juan Tenorio</p>
+<p class="text-xs text-gray-500 italic">José Zorrilla</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5 text-gray-300">José Zorrilla</td>
+<td class="px-6 py-5 text-gray-300">Drama</td>
+<td class="px-6 py-5 text-gray-300 font-mono text-sm">31 Oct 2023</td>
+<td class="px-6 py-5 text-center">
+<span class="inline-flex items-center rounded-full bg-primary/20 px-3 py-1 text-xs font-medium text-primary border border-primary/30">
+                                        Próximamente
+                                    </span>
+</td>
+<td class="px-6 py-5 text-right space-x-2">
+<button class="p-2 text-gray-400 hover:text-primary transition-colors bg-white/5 rounded-lg border border-border-color" title="Editar">
+<span class="material-symbols-outlined text-lg">edit</span>
+</button>
+<button class="p-2 text-gray-400 hover:text-red-500 transition-colors bg-white/5 rounded-lg border border-border-color" title="Eliminar">
+<span class="material-symbols-outlined text-lg">delete</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+<!-- Pagination -->
+<div class="px-6 py-4 flex items-center justify-between border-t border-border-color bg-white/2">
+<p class="text-sm text-gray-500">Mostrando <span class="text-white font-medium">4</span> de <span class="text-white font-medium">12</span> obras</p>
+<div class="flex gap-2">
+<button class="p-2 rounded border border-border-color text-gray-500 hover:text-white hover:bg-white/5 disabled:opacity-30" disabled="">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="px-3 py-1 rounded border border-primary bg-primary/10 text-primary text-sm font-bold">1</button>
+<button class="px-3 py-1 rounded border border-border-color text-gray-400 text-sm hover:bg-white/5">2</button>
+<button class="px-3 py-1 rounded border border-border-color text-gray-400 text-sm hover:bg-white/5">3</button>
+<button class="p-2 rounded border border-border-color text-gray-500 hover:text-white hover:bg-white/5">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Bottom Stats -->
+<section class="px-10 pb-10 grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="bg-surface border border-border-color p-6 rounded-xl flex items-center gap-4">
+<div class="p-3 bg-primary/20 rounded-lg text-primary">
+<span class="material-symbols-outlined text-3xl">local_activity</span>
+</div>
+<div>
+<p class="text-xs text-gray-500 font-bold uppercase tracking-widest">Funciones este mes</p>
+<p class="text-2xl font-black">24</p>
+</div>
+</div>
+<div class="bg-surface border border-border-color p-6 rounded-xl flex items-center gap-4">
+<div class="p-3 bg-green-900/20 rounded-lg text-green-400">
+<span class="material-symbols-outlined text-3xl">trending_up</span>
+</div>
+<div>
+<p class="text-xs text-gray-500 font-bold uppercase tracking-widest">Ocupación Media</p>
+<p class="text-2xl font-black">82%</p>
+</div>
+</div>
+<div class="bg-surface border border-border-color p-6 rounded-xl flex items-center gap-4">
+<div class="p-3 bg-blue-900/20 rounded-lg text-blue-400">
+<span class="material-symbols-outlined text-3xl">group_work</span>
+</div>
+<div>
+<p class="text-xs text-gray-500 font-bold uppercase tracking-widest">Actores en activo</p>
+<p class="text-2xl font-black">18</p>
+</div>
+</div>
+</section>
+</main>
+</div>
+</body></html>

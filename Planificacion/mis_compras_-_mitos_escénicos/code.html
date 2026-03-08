@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Forum&amp;family=Be+Vietnam+Pro:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#950c13", // Deep Maroon
+                        "accent": "#E3B04B",  // Mustard Gold
+                        "background-light": "#f8f7f5",
+                        "background-dark": "#000000", // Solid Deep Black
+                    },
+                    fontFamily: {
+                        "display": ["Be Vietnam Pro", "sans-serif"],
+                        "forum": ["Forum", "serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: "Be Vietnam Pro", sans-serif;
+        }
+        .font-forum {
+            font-family: "Forum", serif;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-white min-h-screen flex flex-col">
+<!-- Layout Container -->
+<div class="flex flex-1 w-full max-w-[1440px] mx-auto">
+<!-- Sidebar Navigation -->
+<aside class="w-80 hidden md:flex flex-col border-r border-white/10 p-8 bg-background-dark sticky top-0 h-screen">
+<div class="flex items-center gap-4 mb-12">
+<div class="size-12 rounded-full bg-primary/20 flex items-center justify-center border border-accent/30 overflow-hidden">
+<img alt="Logo de Mitos Escénicos" class="w-full h-full object-cover" data-alt="Theater mask logo with elegant gold details" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7CUXK_4Pi11a3tD3-f1vhELx6QKfmZ5bbR7-eHKyx2G3waCERgwG6LViqTIKtPqUL7oMrIRbzUiyaVUefZnnbIy39Iuv5HhQXzrywQ_a3S_VSnf4AN-Zce5q0MB905paa2Xcc2HSXQJTDnLRcNhuto0gGraba8DQ5QvTtGgwE4CiSlN0_JeYG9xMpCA-enshhQtAP3qWWkWLtR9G4c5CJbnXN7-aaQNmQ8g-OcCzdXCYcIGp7Wo9zpqyxMHCjDEZHkZqvAS6FTedX"/>
+</div>
+<div>
+<h1 class="font-forum text-xl tracking-wider text-accent">Mitos Escénicos</h1>
+<p class="text-xs text-white/50 uppercase tracking-widest">Teatro &amp; Cultura</p>
+</div>
+</div>
+<nav class="flex flex-col gap-2 flex-1">
+<a class="flex items-center gap-4 px-4 py-3 rounded-lg text-white/70 hover:bg-white/5 transition-colors group" href="#">
+<span class="material-symbols-outlined text-[24px] group-hover:text-accent">person</span>
+<span class="text-sm font-medium">Mi Información</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-lg text-white/70 hover:bg-white/5 transition-colors group" href="#">
+<span class="material-symbols-outlined text-[24px] group-hover:text-accent">confirmation_number</span>
+<span class="text-sm font-medium">Mis Boletos</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-lg bg-primary text-white shadow-lg shadow-primary/20" href="#">
+<span class="material-symbols-outlined text-[24px] fill-1">shopping_bag</span>
+<span class="text-sm font-bold">Mis Compras</span>
+</a>
+<div class="h-px bg-white/10 my-4"></div>
+<a class="flex items-center gap-4 px-4 py-3 rounded-lg text-white/70 hover:bg-white/5 transition-colors group" href="#">
+<span class="material-symbols-outlined text-[24px] group-hover:text-accent">favorite</span>
+<span class="text-sm font-medium">Favoritos</span>
+</a>
+</nav>
+<div class="mt-auto">
+<button class="flex items-center gap-4 px-4 py-3 w-full text-white/40 hover:text-white transition-colors">
+<span class="material-symbols-outlined text-[24px]">logout</span>
+<span class="text-sm font-medium">Cerrar Sesión</span>
+</button>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 p-6 md:p-12 overflow-y-auto">
+<header class="mb-10">
+<h2 class="font-forum text-5xl text-accent mb-2">Mis Compras</h2>
+<p class="text-white/60 text-lg">Historial de pedidos de la tienda de mercancía oficial.</p>
+</header>
+<!-- Order List -->
+<div class="space-y-8 max-w-4xl">
+<!-- Order Card 1 -->
+<div class="bg-white/5 border border-white/10 rounded-xl overflow-hidden shadow-2xl">
+<div class="bg-white/5 px-6 py-4 flex flex-wrap justify-between items-center gap-4 border-b border-white/10">
+<div class="flex gap-8">
+<div>
+<p class="text-[10px] uppercase tracking-widest text-white/40 mb-1">Fecha</p>
+<p class="text-sm font-medium">12 de Octubre, 2023</p>
+</div>
+<div>
+<p class="text-[10px] uppercase tracking-widest text-white/40 mb-1">Pedido</p>
+<p class="text-sm font-forum text-accent tracking-widest">ME-90321</p>
+</div>
+<div>
+<p class="text-[10px] uppercase tracking-widest text-white/40 mb-1">Total</p>
+<p class="text-sm font-bold text-accent">$65.00</p>
+</div>
+</div>
+<div class="flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20">
+<span class="size-2 rounded-full bg-emerald-500 animate-pulse"></span>
+<span class="text-[11px] font-bold text-emerald-500 uppercase tracking-tighter">Entregado</span>
+</div>
+</div>
+<div class="p-6 space-y-6">
+<!-- Product Item -->
+<div class="flex items-center gap-6">
+<div class="size-20 rounded-lg bg-neutral-900 overflow-hidden flex-shrink-0 border border-white/10">
+<img alt="Camiseta Macbeth" class="w-full h-full object-cover" data-alt="Black theatrical t-shirt with Macbeth typography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4vM7pOmA4iCfmwNCiGi76mGykVUorUAJ1paYKg0wlLbofJhVIG56LUBrQLt_mYVu0FG4CmhWsU-mTtrix-ZKpNs1PUGX2rzOe1ouPw1lVHrGa71WU8cZVbqeTDUIKVmDGY15d4lugUN4MH03Mi-x7v16JWNmIRBarGGGx5Ld-Wt4GD2sLm4vwR7eFMANcq7zKg6wlfjcmTE31hCZhkP08F81eExtSXp7Et1HPaM6wtz58SsHATtz14FzbZc7kd8mGe4YvwasJV376"/>
+</div>
+<div class="flex-1">
+<h4 class="font-forum text-xl text-white">Camiseta Macbeth</h4>
+<p class="text-sm text-white/50">Talla: L • Color: Negro Humo</p>
+<p class="text-xs mt-1 text-accent/80 font-medium tracking-wide uppercase">Cantidad: 1</p>
+</div>
+<div class="text-right">
+<p class="text-lg font-forum">$25.00</p>
+</div>
+</div>
+<!-- Product Item 2 -->
+<div class="flex items-center gap-6">
+<div class="size-20 rounded-lg bg-neutral-900 overflow-hidden flex-shrink-0 border border-white/10">
+<img alt="Poster Hamlet" class="w-full h-full object-cover" data-alt="Artistic minimalist Hamlet theater poster" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjVewt8dSxkSyD09z756zaZM1ol_PLkzlHaPgqc6VAotHLm6BzCXtcd-BZt30-15c0xnDxCC6Sfa47IxUKhw50c3GPqw898IowiP69oPH9oLVt3jrg-xQhf64v6lww6hNzMlfSxyMpGjlE508zLk5PWdNAGF06_kFjRjrc0RY-3XTeCJfgtupgr4cpMgtcUuWNH5SO_MuFVMaQvWxk0s9x2hLRjH_-q7ypmRPhL9QtB7bkUfnzFxVaHVoncAobuPJ9Mcdmv2EvWvbP"/>
+</div>
+<div class="flex-1">
+<h4 class="font-forum text-xl text-white">Poster Edición Coleccionista Hamlet</h4>
+<p class="text-sm text-white/50">Dimensiones: 24" x 36"</p>
+<p class="text-xs mt-1 text-accent/80 font-medium tracking-wide uppercase">Cantidad: 1</p>
+</div>
+<div class="text-right">
+<p class="text-lg font-forum">$40.00</p>
+</div>
+</div>
+</div>
+<div class="px-6 py-4 bg-white/[0.02] border-t border-white/10 flex justify-end">
+<button class="bg-primary hover:bg-primary/80 text-white px-6 py-2 rounded-lg text-sm font-bold tracking-wide transition-all active:scale-95 flex items-center gap-2">
+                            Ver Detalles <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Order Card 2 -->
+<div class="bg-white/5 border border-white/10 rounded-xl overflow-hidden opacity-90">
+<div class="bg-white/5 px-6 py-4 flex flex-wrap justify-between items-center gap-4 border-b border-white/10">
+<div class="flex gap-8">
+<div>
+<p class="text-[10px] uppercase tracking-widest text-white/40 mb-1">Fecha</p>
+<p class="text-sm font-medium">05 de Septiembre, 2023</p>
+</div>
+<div>
+<p class="text-[10px] uppercase tracking-widest text-white/40 mb-1">Pedido</p>
+<p class="text-sm font-forum text-accent tracking-widest">ME-88412</p>
+</div>
+<div>
+<p class="text-[10px] uppercase tracking-widest text-white/40 mb-1">Total</p>
+<p class="text-sm font-bold text-accent">$18.50</p>
+</div>
+</div>
+<div class="flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 border border-accent/20">
+<span class="size-2 rounded-full bg-accent"></span>
+<span class="text-[11px] font-bold text-accent uppercase tracking-tighter">En camino</span>
+</div>
+</div>
+<div class="p-6">
+<div class="flex items-center gap-6">
+<div class="size-20 rounded-lg bg-neutral-900 overflow-hidden flex-shrink-0 border border-white/10">
+<img alt="Programa de mano" class="w-full h-full object-cover" data-alt="Elegant theater program booklet" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDb5JFI_vL4Sd1rJfu_m62yWLgHvHmMuSs0VSLZmGIN_5DDwfj8OO0UjSK5hHECf3u3mi7b89bnwj0FHZMNP1KcaRBboGWr7_AghRDf3iYR1DnDpi-Tg6ffvA0hHNMwFGzey6pQrcsv-3skrK5S8dIJiy_pmgvC9Hhigy8XwOoMb1ZZXNbiFEoTphmSBnmxDxkCzDDPd-rjH2OPYXRWdpNC5i3sgK7HUs_81W1Xt1ju1uQZVDWGc6xfcQ6HnsqPDEAXb2JvVeGGuIjD"/>
+</div>
+<div class="flex-1">
+<h4 class="font-forum text-xl text-white">Programa de Temporada Otoño</h4>
+<p class="text-sm text-white/50">Incluye autógrafos del elenco</p>
+<p class="text-xs mt-1 text-accent/80 font-medium tracking-wide uppercase">Cantidad: 1</p>
+</div>
+<div class="text-right">
+<p class="text-lg font-forum">$18.50</p>
+</div>
+</div>
+</div>
+<div class="px-6 py-4 bg-white/[0.02] border-t border-white/10 flex justify-end">
+<button class="text-accent hover:text-white border border-accent/30 hover:bg-accent/10 px-6 py-2 rounded-lg text-sm font-bold tracking-wide transition-all">
+                            Ver Detalles
+                        </button>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- Footer -->
+<footer class="mt-auto border-t border-white/10 py-12 bg-background-dark px-6">
+<div class="max-w-[1440px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 items-center text-center md:text-left">
+<div>
+<h3 class="font-forum text-2xl text-accent mb-4 tracking-wider">Mitos Escénicos</h3>
+<p class="text-white/40 text-sm max-w-xs mx-auto md:mx-0">Explorando la profundidad del drama humano a través de la escena clásica y contemporánea.</p>
+</div>
+<div class="flex justify-center gap-8">
+<a class="text-white/60 hover:text-accent transition-colors flex items-center gap-2" href="#">
+<svg class="size-5 fill-current" viewbox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.335 3.608 1.31.975.975 1.248 2.242 1.31 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.335 2.633-1.31 3.608-.975.975-2.242 1.248-3.608 1.31-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.335-3.608-1.31-.975-.975-1.248-2.242-1.31-3.608-.058-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.062-1.366.335-2.633 1.31-3.608.975-.975 2.242-1.248 3.608-1.31 1.266-.058 1.646-.07 4.85-.07zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.058-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path></svg>
+</a>
+<a class="text-white/60 hover:text-accent transition-colors flex items-center gap-2" href="#">
+<svg class="size-5 fill-current" viewbox="0 0 24 24"><path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"></path></svg>
+</a>
+<a class="text-white/60 hover:text-accent transition-colors flex items-center gap-2" href="#">
+<svg class="size-5 fill-current" viewbox="0 0 24 24"><path d="M12.525.023c1.792.036 3.558.261 5.21.652 2.304.536 4.154 2.385 4.69 4.69.391 1.652.616 3.418.652 5.21v2.85c-.036 1.792-.261 3.558-.652 5.21-.536 2.304-2.386 4.154-4.69 4.69-1.652.391-3.418.616-5.21.652h-1.05c-1.792-.036-3.558-.261-5.21-.652-2.304-.536-4.154-2.386-4.69-4.69-.391-1.652-.616-3.418-.652-5.21v-2.85c.036-1.792.261-3.558.652-5.21.536-2.304 2.386-4.154 4.69-4.69 1.652-.391 3.418-.616 5.21-.652h1.05zm5.542 16.485c-.328-.19-.652-.375-.973-.553l-.004-.002c-1.636-.884-3.23-1.745-4.81-2.597-.156-.084-.28-.084-.436 0-1.58.852-3.174 1.713-4.81 2.597l-.004.002c-.321.178-.645.363-.973.553-.193.111-.328.086-.405-.075-.077-.16-.03-.323.111-.532 1.34-1.99 2.68-3.98 4.02-5.97.106-.157.2-.157.306 0 1.34 1.99 2.68 3.98 4.02 5.97.141.209.188.372.111.532-.077.161-.212.186-.405.075z"></path></svg>
+</a>
+</div>
+<div class="flex flex-col md:items-end gap-2">
+<a class="text-white/60 hover:text-accent transition-colors font-forum tracking-wider" href="#">Sobre nosotros</a>
+<p class="text-[10px] text-white/20 uppercase tracking-[0.2em] mt-2">© 2023 Mitos Escénicos. Todos los derechos reservados.</p>
+</div>
+</div>
+</footer>
+</body></html>

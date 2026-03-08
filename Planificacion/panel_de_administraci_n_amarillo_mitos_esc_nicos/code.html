@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Mitos Escénicos - Inventory Management</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#E3B04B", // Mustard Gold yellow
+                        "background-light": "#f8f7f5",
+                        "background-dark": "#121212",
+                        "surface-dark": "#1e1e1e",
+                        "border-dark": "#2a2a2a",
+                    },
+                    fontFamily: {
+                        "display": ["Be Vietnam Pro", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Be Vietnam Pro', sans-serif;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #121212;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #2a2a2a;
+            border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #E3B04B;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 antialiased overflow-hidden h-screen flex">
+<!-- Sidebar Navigation -->
+<aside class="w-64 flex-shrink-0 border-r border-border-dark bg-surface-dark flex flex-col">
+<div class="p-6 flex items-center gap-3">
+<div class="size-10 rounded-full bg-primary flex items-center justify-center text-white">
+<span class="material-symbols-outlined">theater_comedy</span>
+</div>
+<div>
+<h1 class="text-white text-base font-bold leading-tight">Mitos Escénicos</h1>
+<p class="text-primary text-xs font-medium uppercase tracking-wider">Admin Panel</p>
+</div>
+</div>
+<nav class="flex-1 px-4 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-primary text-white group" href="#">
+<span class="material-symbols-outlined text-[22px]">inventory_2</span>
+<span class="text-sm font-medium">Inventory</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:bg-white/5 hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined text-[22px]">payments</span>
+<span class="text-sm font-medium">Sales</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:bg-white/5 hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined text-[22px]">group</span>
+<span class="text-sm font-medium">Users</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:bg-white/5 hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined text-[22px]">settings</span>
+<span class="text-sm font-medium">Settings</span>
+</a>
+</nav>
+<div class="p-4 mt-auto border-t border-border-dark">
+<div class="flex items-center gap-3 p-2">
+<div class="size-8 rounded-lg bg-gradient-to-tr from-primary to-orange-300" data-alt="Abstract orange and gold profile avatar gradient"></div>
+<div class="flex-1 min-w-0">
+<p class="text-sm font-bold text-white truncate">Admin User</p>
+<p class="text-xs text-slate-500 truncate">admin@mitosescenicos.com</p>
+</div>
+<button class="text-slate-400 hover:text-white">
+<span class="material-symbols-outlined text-[20px]">logout</span>
+</button>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col overflow-hidden">
+<!-- Top Header -->
+<header class="h-16 border-b border-border-dark flex items-center justify-between px-8 bg-background-dark/50 backdrop-blur-md">
+<div class="flex items-center gap-4 flex-1 max-w-xl">
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 text-[20px]">search</span>
+<input class="w-full bg-surface-dark border-none rounded-lg pl-10 pr-4 py-2 text-sm text-slate-200 focus:ring-1 focus:ring-primary placeholder:text-slate-500" placeholder="Search inventory..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="relative p-2 text-slate-400 hover:text-white hover:bg-surface-dark rounded-full transition-all">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 size-2 bg-primary rounded-full border-2 border-background-dark"></span>
+</button>
+<div class="h-6 w-px bg-border-dark mx-2"></div>
+<h2 class="text-slate-400 text-sm font-medium">Store Dashboard</h2>
+</div>
+</header>
+<!-- Content Body -->
+<div class="flex-1 overflow-y-auto custom-scrollbar p-8">
+<!-- Stats Bar -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+<div class="bg-surface-dark p-6 rounded-xl border border-border-dark group hover:border-primary/50 transition-all">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-primary/10 rounded-lg text-primary">
+<span class="material-symbols-outlined">package_2</span>
+</div>
+<span class="text-emerald-500 text-xs font-bold">+12%</span>
+</div>
+<p class="text-slate-400 text-sm mb-1">Total Products</p>
+<h3 class="text-2xl font-bold text-white">1,248</h3>
+</div>
+<div class="bg-surface-dark p-6 rounded-xl border border-border-dark group hover:border-primary/50 transition-all">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-amber-500/10 rounded-lg text-amber-500">
+<span class="material-symbols-outlined">warning</span>
+</div>
+<span class="text-amber-500 text-xs font-bold">8 needs attention</span>
+</div>
+<p class="text-slate-400 text-sm mb-1">Low Stock Items</p>
+<h3 class="text-2xl font-bold text-white">12</h3>
+</div>
+<div class="bg-surface-dark p-6 rounded-xl border border-border-dark group hover:border-primary/50 transition-all">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-primary/10 rounded-lg text-primary">
+<span class="material-symbols-outlined">trending_up</span>
+</div>
+<span class="text-emerald-500 text-xs font-bold">+$2.4k today</span>
+</div>
+<p class="text-slate-400 text-sm mb-1">Monthly Sales Revenue</p>
+<h3 class="text-2xl font-bold text-white">$14,850</h3>
+</div>
+</div>
+<!-- Page Title & Primary Action -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
+<div>
+<h1 class="text-3xl font-black text-white tracking-tight">Store Inventory</h1>
+<p class="text-slate-400 mt-1">Manage and track your theater merchandise stock.</p>
+</div>
+<button class="flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-white font-bold py-3 px-6 rounded-lg transition-all shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined">add</span>
+                    Add New Product
+                </button>
+</div>
+<!-- Inventory Filters -->
+<div class="flex border-b border-border-dark mb-6 overflow-x-auto no-scrollbar">
+<button class="px-6 py-4 text-sm font-bold text-primary border-b-2 border-primary whitespace-nowrap">All Items</button>
+<button class="px-6 py-4 text-sm font-bold text-slate-400 hover:text-white whitespace-nowrap">Posters</button>
+<button class="px-6 py-4 text-sm font-bold text-slate-400 hover:text-white whitespace-nowrap">T-Shirts</button>
+<button class="px-6 py-4 text-sm font-bold text-slate-400 hover:text-white whitespace-nowrap">Programs</button>
+<button class="px-6 py-4 text-sm font-bold text-slate-400 hover:text-white whitespace-nowrap">Special Edition</button>
+</div>
+<!-- Inventory Table -->
+<div class="bg-surface-dark rounded-xl border border-border-dark overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-white/5">
+<th class="px-6 py-4 text-xs font-bold text-slate-400 uppercase tracking-widest">Product Details</th>
+<th class="px-6 py-4 text-xs font-bold text-slate-400 uppercase tracking-widest">Category</th>
+<th class="px-6 py-4 text-xs font-bold text-slate-400 uppercase tracking-widest">Stock Level</th>
+<th class="px-6 py-4 text-xs font-bold text-slate-400 uppercase tracking-widest">Price</th>
+<th class="px-6 py-4 text-xs font-bold text-slate-400 uppercase tracking-widest text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-border-dark">
+<!-- Product Row 1 -->
+<tr class="hover:bg-white/[0.02] transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-4">
+<div class="size-12 rounded-lg bg-cover bg-center bg-slate-800" data-alt="Theatrical poster for Hamlet play black and gold" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBPj_kJ-5ANCNSlA3I0Qhe9fLfznVP7RMtaVCmIJ3pr305dq6rKfNAoOswq58JCYfI60upxdyQPgP9Eef_IW6N3MBqI25NP03qdy5crDD-hLAnNeLP1Wa0qvFr2QatV3lPYMec4f3576HFI7YJh17v7BkHg4VjgybfEL81L3G8qf0WRfxxpyXvo0Xn4kaBZ5ApOjUV90gTdsj4ZDi6IN-67Kryc5_-D0-nOmZ_8IjFqfqyiGGoctBmsWy6CfFTFMGDTU3EopefLcwwh')"></div>
+<div>
+<p class="text-sm font-bold text-white">Hamlet Official Poster</p>
+<p class="text-xs text-slate-500">SKU: ME-POST-001</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-500/10 text-blue-400">Poster</span>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<div class="flex-1 h-1.5 w-24 bg-slate-800 rounded-full overflow-hidden">
+<div class="h-full bg-emerald-500" style="width: 85%"></div>
+</div>
+<span class="text-sm text-slate-300">85/100</span>
+</div>
+</td>
+<td class="px-6 py-4 text-sm font-bold text-white">$25.00</td>
+<td class="px-6 py-4 text-right">
+<div class="flex items-center justify-end gap-2">
+<button class="p-2 text-slate-400 hover:text-primary hover:bg-primary/10 rounded-lg transition-all">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+</button>
+<button class="p-2 text-slate-400 hover:text-red-500 hover:bg-red-500/10 rounded-lg transition-all">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Product Row 2 -->
+<tr class="hover:bg-white/[0.02] transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-4">
+<div class="size-12 rounded-lg bg-cover bg-center bg-slate-800" data-alt="Black theater company t-shirt with gold logo" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCsDpbaHCLdVU788tXndzX8UqTJNp8bC5eymrBUX-82-yN85H2FFLFwUHsBiZ0YVRDWMTHSYu966cevljSJq-S_MS4N4LfTPPlH1cB9Pp0dtzKTehTbspxbXwxDmeYwb9EY1rlMECTWxG-C7cd_XEBcbGPKku9imps4ivX0ce7tocbLiwhso0bh9AFOTq0Umrcx4js_9xGApRZ2AWWgDgmUO3OBEN53-P2p6quCB8R208DPoJU36DkczXv_dZ9bNSQa0hbheKWLaDwo')"></div>
+<div>
+<p class="text-sm font-bold text-white">Classic Mitos T-Shirt</p>
+<p class="text-xs text-slate-500">SKU: ME-TSHR-042</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-purple-500/10 text-purple-400">T-Shirt</span>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<div class="flex-1 h-1.5 w-24 bg-slate-800 rounded-full overflow-hidden">
+<div class="h-full bg-amber-500" style="width: 15%"></div>
+</div>
+<span class="text-sm text-amber-500 font-medium">15/100</span>
+</div>
+</td>
+<td class="px-6 py-4 text-sm font-bold text-white">$35.00</td>
+<td class="px-6 py-4 text-right">
+<div class="flex items-center justify-end gap-2">
+<button class="p-2 text-slate-400 hover:text-primary hover:bg-primary/10 rounded-lg transition-all">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+</button>
+<button class="p-2 text-slate-400 hover:text-red-500 hover:bg-red-500/10 rounded-lg transition-all">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Product Row 3 -->
+<tr class="hover:bg-white/[0.02] transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-4">
+<div class="size-12 rounded-lg bg-cover bg-center bg-slate-800" data-alt="Elegant theater program booklet with gold accents" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAfsyjrUwJvnYLmPn38cI_V7tKy_lvLq6iLLHYOZ63DUnIHCooNgSKSaoktSqmOIIIrtLFtmoWdAJADGvzKmHVERfOAcJqcOQ4C8NAo7HGXrsdTe5zUa0mz0LZ8V9dn1etFXb7En0jdVHzBF_47jFCzFLEHV0edVaV-IK8XWUcwyzSAtFDeOnyokNDYIVX6KrhANCvxIdJpz7fV5gmUTb1udNDjm8ou3KCvQ0WRWQkqqqLsWk7_FJlGRlNztxkaNwaLJOKaE3gaHRMr')"></div>
+<div>
+<p class="text-sm font-bold text-white">Season 2024 Program</p>
+<p class="text-xs text-slate-500">SKU: ME-PROG-002</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-500/10 text-emerald-400">Program</span>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<div class="flex-1 h-1.5 w-24 bg-slate-800 rounded-full overflow-hidden">
+<div class="h-full bg-emerald-500" style="width: 95%"></div>
+</div>
+<span class="text-sm text-slate-300">450/500</span>
+</div>
+</td>
+<td class="px-6 py-4 text-sm font-bold text-white">$12.00</td>
+<td class="px-6 py-4 text-right">
+<div class="flex items-center justify-end gap-2">
+<button class="p-2 text-slate-400 hover:text-primary hover:bg-primary/10 rounded-lg transition-all">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+</button>
+<button class="p-2 text-slate-400 hover:text-red-500 hover:bg-red-500/10 rounded-lg transition-all">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination -->
+<div class="px-6 py-4 border-t border-border-dark flex items-center justify-between">
+<p class="text-xs text-slate-500 font-medium">Showing <span class="text-slate-300">1 to 10</span> of <span class="text-slate-300">128</span> items</p>
+<div class="flex items-center gap-2">
+<button class="p-1 text-slate-500 hover:text-white disabled:opacity-30" disabled="">
+<span class="material-symbols-outlined text-[20px]">chevron_left</span>
+</button>
+<div class="flex items-center gap-1">
+<button class="size-8 rounded bg-primary text-white text-xs font-bold">1</button>
+<button class="size-8 rounded hover:bg-white/5 text-slate-400 text-xs font-bold">2</button>
+<button class="size-8 rounded hover:bg-white/5 text-slate-400 text-xs font-bold">3</button>
+</div>
+<button class="p-1 text-slate-500 hover:text-white">
+<span class="material-symbols-outlined text-[20px]">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Modal Mockup (Hidden by default, shown as conceptual UI) -->
+<div class="fixed inset-0 bg-background-dark/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 pointer-events-none opacity-0">
+<div class="bg-surface-dark w-full max-w-lg rounded-2xl border border-border-dark shadow-2xl overflow-hidden">
+<div class="p-6 border-b border-border-dark flex items-center justify-between">
+<h3 class="text-xl font-bold text-white">Add New Product</h3>
+<button class="text-slate-400 hover:text-white">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<div class="p-6 space-y-4">
+<div class="grid grid-cols-2 gap-4">
+<div class="col-span-2">
+<label class="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">Product Name</label>
+<input class="w-full bg-background-dark border-border-dark rounded-lg text-white focus:ring-primary focus:border-primary px-4 py-2.5" placeholder="e.g. Macbeth Poster" type="text"/>
+</div>
+<div>
+<label class="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">Category</label>
+<select class="w-full bg-background-dark border-border-dark rounded-lg text-white focus:ring-primary focus:border-primary px-4 py-2.5">
+<option>Poster</option>
+<option>T-Shirt</option>
+<option>Program</option>
+</select>
+</div>
+<div>
+<label class="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">Price ($)</label>
+<input class="w-full bg-background-dark border-border-dark rounded-lg text-white focus:ring-primary focus:border-primary px-4 py-2.5" placeholder="0.00" type="number"/>
+</div>
+<div>
+<label class="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">Initial Stock</label>
+<input class="w-full bg-background-dark border-border-dark rounded-lg text-white focus:ring-primary focus:border-primary px-4 py-2.5" placeholder="100" type="number"/>
+</div>
+<div>
+<label class="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">SKU Code</label>
+<input class="w-full bg-background-dark border-border-dark rounded-lg text-white focus:ring-primary focus:border-primary px-4 py-2.5" placeholder="ME-XXXX-000" type="text"/>
+</div>
+</div>
+<div>
+<label class="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">Product Image</label>
+<div class="border-2 border-dashed border-border-dark rounded-xl p-8 flex flex-col items-center justify-center text-slate-500 hover:text-slate-300 hover:bg-white/5 transition-all cursor-pointer">
+<span class="material-symbols-outlined text-[32px] mb-2">cloud_upload</span>
+<p class="text-sm">Click to upload or drag and drop</p>
+<p class="text-xs mt-1">PNG, JPG up to 5MB</p>
+</div>
+</div>
+</div>
+<div class="p-6 bg-white/[0.02] border-t border-border-dark flex justify-end gap-3">
+<button class="px-5 py-2.5 rounded-lg text-slate-400 hover:text-white font-bold transition-all">Cancel</button>
+<button class="px-8 py-2.5 rounded-lg bg-primary hover:bg-primary/90 text-white font-bold transition-all">Save Product</button>
+</div>
+</div>
+</div>
+</body></html>

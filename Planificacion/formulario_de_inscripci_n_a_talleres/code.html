@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Inscripción | Mitos Escénicos</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Forum&amp;family=Be+Vietnam+Pro:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#E3B04B", // Mustard Gold
+                        "background-light": "#1a1a1a",
+                        "background-dark": "#050505",
+                    },
+                    fontFamily: {
+                        "display": ["Forum", "serif"],
+                        "sans": ["Be Vietnam Pro", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #050505;
+            color: #ffffff;
+            font-family: 'Be Vietnam Pro', sans-serif;
+        }
+        h1, h2, h3, .font-forum {
+            font-family: 'Forum', serif;
+        }
+        .spotlight {
+            background: radial-gradient(circle at 50% -20%, rgba(227, 176, 75, 0.15) 0%, rgba(5, 5, 5, 0) 70%);
+        }
+        .glass-card {
+            background: rgba(20, 20, 20, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(227, 176, 75, 0.2);
+        }
+        input:focus, select:focus {
+            border-color: #E3B04B !important;
+            ring-color: #E3B04B !important;
+            outline: none;
+        }
+    </style>
+</head>
+<body class="bg-background-dark text-white min-h-screen spotlight">
+<div class="relative flex flex-col min-h-screen w-full overflow-x-hidden">
+<!-- Navigation -->
+<header class="flex items-center justify-between px-6 py-6 md:px-20 border-b border-white/10">
+<div class="flex items-center gap-3">
+<div class="text-primary">
+<span class="material-symbols-outlined text-4xl">theater_comedy</span>
+</div>
+<h2 class="text-white text-2xl font-forum tracking-widest uppercase">Mitos Escénicos</h2>
+</div>
+<nav class="hidden md:flex items-center gap-10">
+<a class="text-white/70 hover:text-primary transition-colors text-sm uppercase tracking-widest font-forum" href="#">Talleres</a>
+<a class="text-white/70 hover:text-primary transition-colors text-sm uppercase tracking-widest font-forum" href="#">Compañía</a>
+<a class="text-white/70 hover:text-primary transition-colors text-sm uppercase tracking-widest font-forum" href="#">Galería</a>
+<button class="border border-primary text-primary px-6 py-2 rounded hover:bg-primary hover:text-black transition-all duration-300 font-forum uppercase tracking-tighter">
+                    Contacto
+                </button>
+</nav>
+</header>
+<main class="flex-1 flex flex-col items-center justify-center px-4 py-12">
+<!-- Hero Title -->
+<div class="text-center mb-12 max-w-2xl">
+<h1 class="text-5xl md:text-7xl font-forum text-primary mb-4 leading-tight">Inscripción Actoral</h1>
+<div class="h-px w-24 bg-primary mx-auto mb-6"></div>
+<p class="text-white/60 text-lg font-light tracking-wide uppercase font-forum">Formación Clásica y Contemporánea</p>
+</div>
+<!-- Enrollment Form Card -->
+<div class="w-full max-w-2xl glass-card rounded-xl p-8 md:p-12 shadow-2xl relative">
+<!-- Decorative corner -->
+<div class="absolute top-0 right-0 p-4 opacity-20">
+<span class="material-symbols-outlined text-6xl text-primary">masks</span>
+</div>
+<form class="space-y-8">
+<div class="space-y-6">
+<h3 class="text-2xl font-forum text-primary border-b border-primary/20 pb-2">Datos Personales</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="flex flex-col gap-2">
+<label class="text-xs uppercase tracking-widest text-white/50 font-bold">Nombre Completo</label>
+<input class="bg-black/40 border border-white/10 rounded-lg p-4 text-white placeholder:text-white/20 focus:border-primary transition-all" placeholder="Ej. Stanislavski García" type="text"/>
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-xs uppercase tracking-widest text-white/50 font-bold">Correo Electrónico</label>
+<input class="bg-black/40 border border-white/10 rounded-lg p-4 text-white placeholder:text-white/20 focus:border-primary transition-all" placeholder="actor@mitos.com" type="email"/>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-xs uppercase tracking-widest text-white/50 font-bold">Teléfono de Contacto</label>
+<input class="bg-black/40 border border-white/10 rounded-lg p-4 text-white placeholder:text-white/20 focus:border-primary transition-all" placeholder="+34 000 000 000" type="tel"/>
+</div>
+</div>
+<div class="space-y-6">
+<h3 class="text-2xl font-forum text-primary border-b border-primary/20 pb-2">Selección Académica</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="flex flex-col gap-2">
+<label class="text-xs uppercase tracking-widest text-white/50 font-bold">Taller</label>
+<select class="bg-black/40 border border-white/10 rounded-lg p-4 text-white focus:border-primary transition-all appearance-none cursor-pointer">
+<option disabled="" selected="" value="">Seleccione un taller</option>
+<option value="clasico">Tragedia Griega y Verso</option>
+<option value="contemporaneo">Teatro Físico Contemporáneo</option>
+<option value="impro">Laboratorio de Improvisación</option>
+<option value="direccion">Dirección Escénica</option>
+</select>
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-xs uppercase tracking-widest text-white/50 font-bold">Modalidad</label>
+<select class="bg-black/40 border border-white/10 rounded-lg p-4 text-white focus:border-primary transition-all appearance-none cursor-pointer">
+<option value="presencial">Presencial (Sede Central)</option>
+<option value="video">Video (Online en Directo)</option>
+</select>
+</div>
+</div>
+</div>
+<div class="pt-6">
+<button class="w-full bg-primary text-black font-forum text-xl uppercase tracking-widest py-5 rounded-lg hover:bg-[#d4a13b] transition-all duration-500 shadow-[0_0_20px_rgba(227,176,75,0.3)] hover:shadow-[0_0_35px_rgba(227,176,75,0.5)] transform hover:-translate-y-1" type="submit">
+                            Confirmar Inscripción
+                        </button>
+<p class="text-center text-white/40 text-xs mt-4 uppercase tracking-tighter">
+                            Al inscribirte, aceptas los términos de formación de la compañía Mitos Escénicos.
+                        </p>
+</div>
+</form>
+</div>
+<!-- Footer Decorative Element -->
+<div class="mt-16 flex flex-col items-center gap-4 text-white/30">
+<div class="flex gap-6">
+<a class="hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">public</span></a>
+<a class="hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">camera_enhance</span></a>
+<a class="hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">mail</span></a>
+</div>
+<p class="font-forum text-sm tracking-widest">EST. 2024 — ARTE EN CONSTANTE MOVIMIENTO</p>
+</div>
+</main>
+<!-- Background Image/Texture -->
+<div class="fixed inset-0 -z-10 opacity-10 pointer-events-none">
+<div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1507676184212-d03ab07a01bf?auto=format&amp;fit=crop&amp;q=80')] bg-cover bg-center mix-blend-overlay" data-alt="Atmospheric dark theater stage with velvet curtains"></div>
+</div>
+</div>
+</body></html>

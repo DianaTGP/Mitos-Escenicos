@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Stage &amp; Script - Theater Company Merchandise</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#E3B04B",
+                        "accent": "#E3B04B",
+                        "background-light": "#f8f7f5",
+                        "background-dark": "#0f0b08",
+                    },
+                    fontFamily: {
+                        "display": ["Elika", "serif"],
+                        "body": ["Forum", "serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }</script>
+<style>
+        @font-face {
+            font-family: 'Elika';
+            src: url('https://fonts.cdnfonts.com/s/93126/Elika.woff') format('woff');
+        }
+        @font-face {
+            font-family: 'Forum';
+            src: url('https://fonts.googleapis.com/css2?family=Forum&display=swap');
+        }
+        body {
+            font-family: "Forum", serif;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+            height: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #E3B04B;
+            border-radius: 10px;
+        }
+        h1, h2, h3, .font-display {
+            font-family: 'Elika', serif !important;
+            letter-spacing: 0.05em;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-body">
+<div class="relative flex h-auto min-h-screen w-full flex-col bg-background-light dark:bg-background-dark overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<!-- Top Navigation Bar -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-primary/20 bg-background-light dark:bg-background-dark px-6 md:px-10 py-4 sticky top-0 z-50 backdrop-blur-md">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-3 text-primary">
+<div class="size-8 flex items-center justify-center">
+<span class="material-symbols-outlined text-3xl">theater_comedy</span>
+</div>
+<h2 class="text-slate-900 dark:text-white text-xl font-bold leading-tight tracking-tight">Mitos Escénicos Store</h2>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-slate-700 dark:text-white hover:text-primary dark:hover:text-primary text-sm font-medium transition-colors font-body" href="#">Shop</a>
+<a class="text-slate-700 dark:text-white hover:text-primary dark:hover:text-primary text-sm font-medium transition-colors font-body" href="#">Cart</a>
+<a class="text-slate-700 dark:text-white hover:text-primary dark:hover:text-primary text-sm font-medium transition-colors font-body" href="#">Login</a>
+</nav>
+</div>
+<div class="flex flex-1 justify-end gap-4 md:gap-6">
+<label class="hidden sm:flex flex-col min-w-40 h-10 max-w-64">
+<div class="flex w-full flex-1 items-stretch rounded-lg h-full overflow-hidden border border-primary/20">
+<div class="text-primary flex bg-primary/5 items-center justify-center pl-4 pr-1">
+<span class="material-symbols-outlined text-xl">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 border-none bg-primary/5 text-slate-900 dark:text-white focus:outline-0 focus:ring-0 h-full placeholder:text-slate-400 dark:placeholder:text-slate-500 pl-2 text-sm font-normal font-body" placeholder="Search merchandise..." value=""/>
+</div>
+</label>
+<div class="flex gap-2">
+<button class="relative flex cursor-pointer items-center justify-center rounded-lg h-10 w-10 bg-primary/10 text-primary hover:bg-primary hover:text-white transition-all">
+<span class="material-symbols-outlined">shopping_cart</span>
+<span class="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full text-[10px] font-bold text-white bg-[#E3B04B]">3</span>
+</button>
+<button class="flex cursor-pointer items-center justify-center rounded-lg h-10 w-10 bg-primary/10 text-primary hover:bg-primary hover:text-white transition-all">
+<span class="material-symbols-outlined">person</span>
+</button>
+</div>
+</div>
+</header>
+<main class="flex-1 flex flex-col items-center">
+<div class="w-full max-w-[1280px] px-4 md:px-10 py-6">
+<!-- Hero Section -->
+<div class="@container mb-8">
+<div class="@[480px]:py-3">
+<div class="bg-cover bg-center flex flex-col justify-end overflow-hidden rounded-xl min-h-[320px] relative group" data-alt="Dramatic theater stage with spotlights hitting a prop chair" style='background-image: linear-gradient(to top, rgba(34, 25, 16, 0.9) 0%, rgba(34, 25, 16, 0.2) 60%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuA8uGe_3jZHrWpXL1Iut0zDxmbC3ABKLK6Ur8EynZ7DdXS1U996oUVfGwIuKHv3SvQCMhxEV43EyM49ztnAFQSLEQ6oBx2Y3YtjRXFY0r1mCyYLCf5JhGW1Qn1QchXeIOyctCB6e6N9BKKnyjKNTNI28j4b9KWvq24QiITnoZqRlQHTdjpC__OCaL4FVgHY9woHwfn0ImY5qTC1ynJBMYn64lANkC8mi6or4BRzH9NrXPpn9sfwu-6F7wqfwvYCx321-H5-fEzxnyDk");'>
+<div class="flex flex-col p-6 md:p-10 gap-2">
+<span class="text-primary font-bold tracking-widest text-xs uppercase">Summer Season 2024</span>
+<h1 class="text-white text-3xl md:text-5xl font-bold leading-tight max-w-xl">Exclusive Hamlet Collection</h1>
+<p class="text-slate-300 text-sm md:text-base max-w-md mt-2">Bring the drama home with limited edition apparel and memorabilia from our latest production.</p>
+<button class="mt-4 bg-primary hover:bg-primary/90 text-white font-bold py-3 px-8 rounded-lg w-fit transition-all uppercase text-sm tracking-wider">Explore Collection</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Category Navigation -->
+<div class="flex gap-3 pb-6 pt-2 overflow-x-auto custom-scrollbar whitespace-nowrap">
+<button class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-primary px-6 text-white text-sm font-semibold shadow-lg shadow-primary/20 font-body">
+<span class="material-symbols-outlined text-lg">all_inclusive</span>
+                        All Items
+                    </button>
+<button class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-primary/10 hover:bg-primary/20 px-6 text-slate-700 dark:text-slate-200 text-sm font-medium transition-all font-body">
+<span class="material-symbols-outlined text-lg">apparel</span>
+                        T-shirts
+                    </button>
+<button class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-primary/10 hover:bg-primary/20 px-6 text-slate-700 dark:text-slate-200 text-sm font-medium transition-all font-body">
+<span class="material-symbols-outlined text-lg">image</span>
+                        Posters
+                    </button>
+<button class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-primary/10 hover:bg-primary/20 px-6 text-slate-700 dark:text-slate-200 text-sm font-medium transition-all font-body">
+<span class="material-symbols-outlined text-lg">coffee</span>
+                        Mugs
+                    </button>
+<button class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-primary/10 hover:bg-primary/20 px-6 text-slate-700 dark:text-slate-200 text-sm font-medium transition-all font-body">
+<span class="material-symbols-outlined text-lg">menu_book</span>
+                        Programs
+                    </button>
+</div>
+<!-- Products Grid -->
+<div class="flex items-baseline justify-between pt-8 pb-4 border-b border-primary/10 mb-6">
+<h2 class="text-slate-900 dark:text-white text-2xl font-bold leading-tight">New Arrivals</h2>
+<span class="text-primary text-sm font-medium">12 Products</span>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Product 1 -->
+<div class="flex flex-col gap-4 group">
+<div class="relative w-full aspect-[4/5] bg-primary/5 rounded-xl overflow-hidden">
+<div class="w-full h-full bg-center bg-no-repeat bg-cover transition-transform duration-500 group-hover:scale-110" data-alt="Minimalist black t-shirt with golden skull illustration" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDQ4kJBArdNsIvQ8peTAnu6EoubJZIcLy_IRFYD3HqMfEBk4dQc1DBW165Dw-oANf2BvO4yfebPvVZ44ZLqhAQgElS4k0gmXyK6lUPgO8S879IH4jIXMjJ157nFzzPZGrJQD1UDOD8JZwa85Xay-NeGm4_JPrjCoToKhrDvOL6sln-7C5xSI1-ikVo_tJX1cse_2pa67ArElok-xtU_x8aMyB3gNm9l1oNtzQPAE2QhEn9Ikpfn-7_dmejUpoQfprbuux93i9m002ws");'></div>
+<div class="absolute inset-0 bg-background-dark/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<button class="bg-white text-background-dark font-bold py-2 px-4 rounded-lg shadow-xl text-sm transform translate-y-4 group-hover:translate-y-0 transition-transform font-body">Quick View</button>
+</div>
+<span class="absolute top-3 left-3 text-white text-[10px] font-bold px-2 py-1 rounded uppercase tracking-tighter bg-[#E3B04B]">Bestseller</span>
+</div>
+<div class="flex flex-col gap-1">
+<h3 class="text-slate-900 dark:text-white text-lg font-bold leading-tight group-hover:text-primary transition-colors">Skull &amp; Quill T-Shirt</h3>
+<p class="text-primary text-lg font-bold leading-normal">$32.00</p>
+<button class="mt-3 flex items-center justify-center gap-2 w-full bg-primary hover:bg-primary/90 text-white font-bold py-2.5 rounded-lg transition-all text-sm uppercase tracking-wide font-body">
+<span class="material-symbols-outlined text-lg">add_shopping_cart</span>
+                                Add to cart
+                            </button>
+</div>
+</div>
+<!-- Product 2 -->
+<div class="flex flex-col gap-4 group">
+<div class="relative w-full aspect-[4/5] bg-primary/5 rounded-xl overflow-hidden">
+<div class="w-full h-full bg-center bg-no-repeat bg-cover transition-transform duration-500 group-hover:scale-110" data-alt="Modern vintage style poster for Macbeth" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAa_7PlI5wbt1YUG3Y3L5WaouwbBLyWqJPR4mS6jbJTcuL8kErDAnUofo1hb6Pqw8ZwKmh4Qcq0qrZXdo5CiXQKQKfbysIx6QkNFS_SjWRHCWGBV7-jb3bT_dIXR6R-WxALNweOt49pya77iR1EAww4ICg0HWiI-PsKVybOQbVhF8cmEpc9e59qk8aCeAHk0oTNMuJE6aDoMMjr2zTqyeljODdkhP95d02CdD-3GZ5DzTsqQFdd7RBuZ2-cGunfvq97Ag7o50HOFEBA");'></div>
+<div class="absolute inset-0 bg-background-dark/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<button class="bg-white text-background-dark font-bold py-2 px-4 rounded-lg shadow-xl text-sm transform translate-y-4 group-hover:translate-y-0 transition-transform font-body">Quick View</button>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<h3 class="text-slate-900 dark:text-white text-lg font-bold leading-tight group-hover:text-primary transition-colors">Macbeth Limited Print</h3>
+<p class="text-primary text-lg font-bold leading-normal">$25.00</p>
+<button class="mt-3 flex items-center justify-center gap-2 w-full bg-primary hover:bg-primary/90 text-white font-bold py-2.5 rounded-lg transition-all text-sm uppercase tracking-wide font-body">
+<span class="material-symbols-outlined text-lg">add_shopping_cart</span>
+                                Add to cart
+                            </button>
+</div>
+</div>
+<!-- Product 3 -->
+<div class="flex flex-col gap-4 group">
+<div class="relative w-full aspect-[4/5] bg-primary/5 rounded-xl overflow-hidden">
+<div class="w-full h-full bg-center bg-no-repeat bg-cover transition-transform duration-500 group-hover:scale-110" data-alt="Matte black coffee mug with drama masks logo" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBl3Rl4xsKM1vXeWyaAQ2cmtISfY1ErZvJ4GwwU7oDx2XhyqrcDsNJezJvxe4OQLlRErIBez_5QpkxZPAG2MUzdeRaYTKLrPmY7kF1MHzCGdwI0WW8IPXpNgvPRKP0lrimSZNrPp9xz3IJ0T7kPxdnOvQxb9jGSPa-I305CS9ahx9UKAith98a7xmgQxwbbtFHxLiGJHaMTirXxbp8PZgBk8aPR-eCIiVdUl7Xww0UjYhCBWbBqxP8bMYs0nppxGV6vV8CM__KyJiM6");'></div>
+<div class="absolute inset-0 bg-background-dark/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<button class="bg-white text-background-dark font-bold py-2 px-4 rounded-lg shadow-xl text-sm transform translate-y-4 group-hover:translate-y-0 transition-transform font-body">Quick View</button>
+</div>
+<span class="absolute top-3 left-3 bg-slate-700 text-white text-[10px] font-bold px-2 py-1 rounded uppercase tracking-tighter bg-[#E3B04B]">New</span>
+</div>
+<div class="flex flex-col gap-1">
+<h3 class="text-slate-900 dark:text-white text-lg font-bold leading-tight group-hover:text-primary transition-colors">Drama &amp; Comedy Mug</h3>
+<p class="text-primary text-lg font-bold leading-normal">$18.00</p>
+<button class="mt-3 flex items-center justify-center gap-2 w-full bg-primary hover:bg-primary/90 text-white font-bold py-2.5 rounded-lg transition-all text-sm uppercase tracking-wide font-body">
+<span class="material-symbols-outlined text-lg">add_shopping_cart</span>
+                                Add to cart
+                            </button>
+</div>
+</div>
+<!-- Product 4 -->
+<div class="flex flex-col gap-4 group">
+<div class="relative w-full aspect-[4/5] bg-primary/5 rounded-xl overflow-hidden">
+<div class="w-full h-full bg-center bg-no-repeat bg-cover transition-transform duration-500 group-hover:scale-110" data-alt="High quality theater program booklet with glossy finish" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCqExlcGHI2fFOoiaHKqkDCTci0oKvU_LCgiaFMNtCVCTWzAlDXk6j69X1Euhbw8Q8WyFIy4CPMlNiZLkZ_2PTShKqqhm47I3ZcCfXL-aSwLsWCrX4AUC8LyZ91nQonvpz6SI7WLzV7InmNmBchRdq_Ztt5pItn7wY_knxL3UyJ7Ehs0Iy7D5CrOlfnKx4QQIFrbata9MAC5_Z660ayoACIjxMXpyTudgxTJtS8HZOf_Zo1n8tvcdqVX0aoYEOBxQmpP_nEsdPUwXrh");'></div>
+<div class="absolute inset-0 bg-background-dark/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<button class="bg-white text-background-dark font-bold py-2 px-4 rounded-lg shadow-xl text-sm transform translate-y-4 group-hover:translate-y-0 transition-transform font-body">Quick View</button>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<h3 class="text-slate-900 dark:text-white text-lg font-bold leading-tight group-hover:text-primary transition-colors">Midsummer Program</h3>
+<p class="text-primary text-lg font-bold leading-normal">$15.00</p>
+<button class="mt-3 flex items-center justify-center gap-2 w-full bg-primary hover:bg-primary/90 text-white font-bold py-2.5 rounded-lg transition-all text-sm uppercase tracking-wide font-body">
+<span class="material-symbols-outlined text-lg">add_shopping_cart</span>
+                                Add to cart
+                            </button>
+</div>
+</div>
+</div>
+<!-- Secondary Hero / Newsletter -->
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-slate-100 dark:bg-background-dark border-t border-primary/10 px-6 md:px-10 py-12 mt-12">
+<div class="max-w-[1280px] mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
+<div class="flex flex-col gap-4">
+<div class="flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined text-2xl">theater_comedy</span>
+<h2 class="text-slate-900 dark:text-white text-lg font-bold">Mitos Escénicos Store</h2>
+</div>
+<p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed font-body">The official merchandise partner for premium theater companies and independent productions worldwide.</p>
+</div>
+<div>
+<h4 class="text-slate-900 dark:text-white font-bold mb-4 uppercase text-xs tracking-widest">Customer Service</h4>
+<ul class="flex flex-col gap-3 text-sm text-slate-600 dark:text-slate-400 font-body">
+<li><a class="hover:text-primary transition-colors" href="#">Shipping Info</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Returns &amp; Exchanges</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Sizing Guide</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Contact Us</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-slate-900 dark:text-white font-bold mb-4 uppercase text-xs tracking-widest">Social Media</h4>
+<div class="flex gap-4">
+<a class="h-10 w-10 flex items-center justify-center rounded-lg bg-primary/10 text-primary hover:bg-primary hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined text-xl">camera</span>
+</a>
+<a class="h-10 w-10 flex items-center justify-center rounded-lg bg-primary/10 text-primary hover:bg-primary hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined text-xl">alternate_email</span>
+</a>
+<a class="h-10 w-10 flex items-center justify-center rounded-lg bg-primary/10 text-primary hover:bg-primary hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined text-xl">play_circle</span>
+</a>
+</div>
+</div>
+</div>
+<div class="max-w-[1280px] mx-auto mt-12 pt-8 border-t border-primary/5 text-center">
+<p class="text-slate-500 dark:text-slate-500 text-[10px] uppercase tracking-[0.2em] font-body">© 2024 Mitos Escénicos Merch Co. All Rights Reserved.</p>
+</div>
+</footer>
+</div>
+</div>
+</body></html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Confirmación de Compra | Mitos Escénicos</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700&amp;family=Forum&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#f27f0d",
+                        "background-light": "#f8f7f5",
+                        "background-dark": "#0a0500",
+                        "mustard-gold": "#E3B04B",
+                        "deep-maroon": "#950c13",
+                    },
+                    fontFamily: {
+                        "display": ["Be Vietnam Pro", "sans-serif"],
+                        "serif-forum": ["Forum", "serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Be Vietnam Pro', sans-serif;
+            background-color: #000000;
+            background-image: radial-gradient(circle at 50% -20%, #1a140e 0%, #000000 80%);
+        }
+        .font-forum {
+            font-family: 'Forum', serif;
+        }
+    </style>
+</head>
+<body class="bg-background-light text-white min-h-screen dark:bg-black">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<!-- Top Navigation Bar -->
+<header class="flex items-center justify-between border-b border-white/10 px-6 py-4 lg:px-20 bg-black/20">
+<div class="flex items-center gap-3">
+<div class="text-mustard-gold">
+<svg class="size-8" fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M4 42.4379C4 42.4379 14.0962 36.0744 24 41.1692C35.0664 46.8624 44 42.2078 44 42.2078L44 7.01134C44 7.01134 35.068 11.6577 24.0031 5.96913C14.0971 0.876274 4 7.27094 4 7.27094L4 42.4379Z" fill="currentColor"></path>
+</svg>
+</div>
+<h2 class="font-serif-forum text-2xl tracking-widest uppercase text-white">Mitos Escénicos</h2>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-mustard-gold">shopping_bag</span>
+</div>
+</header>
+<main class="flex flex-1 flex-col items-center justify-center px-4 py-12 lg:px-20">
+<div class="w-full max-w-2xl">
+<!-- Success Icon & Message -->
+<div class="text-center mb-10">
+<div class="inline-flex items-center justify-center size-20 rounded-full bg-mustard-gold/10 border border-mustard-gold/30 mb-6">
+<span class="material-symbols-outlined text-mustard-gold text-5xl">check_circle</span>
+</div>
+<h1 class="font-serif-forum text-4xl lg:text-5xl text-mustard-gold mb-4">¡Gracias por tu compra, Alejandro!</h1>
+<p class="text-white/70 text-lg max-w-md mx-auto leading-relaxed">
+                            Tu pedido <span class="text-white font-bold">#MIT-82910</span> está siendo procesado con el cuidado de una obra maestra.
+                        </p>
+</div>
+<!-- Order Summary Card -->
+<div class="border border-white/10 rounded-xl overflow-hidden shadow-2xl backdrop-blur-sm bg-black/40">
+<div class="px-6 py-4 border-b border-white/10 bg-black/20">
+<h2 class="font-serif-forum text-xl text-mustard-gold uppercase tracking-wider">Resumen del Pedido</h2>
+</div>
+<!-- Items List -->
+<div class="p-6 space-y-6">
+<!-- Item 1 -->
+<div class="flex items-center gap-4">
+<div class="size-20 bg-cover bg-center rounded-lg border border-white/10 shrink-0" data-alt="Black t-shirt with theatrical golden print design" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAtis9Pl3b2xvh8zmS1ihoqZS7SmyW8T22ImOb4Vp3axWNEvzsOKRN5tJOI2nOjXuMOGZaTkxRGrlY47mzVPcvCZIbmm-E92Qf952-Pne3DDRmWGtUjTYmUhtNwZatlHMSkmZY-8p9d27OnEV7U9PPrxcyB_I2ikzGPDmCw7Opc7ZLQ7VekWGngtiAWQvDLb1BvK4Ohtgf5-eZgI8BmY27sBKN3Jc5BRvyePXFHMaKZZ5NyMkdIcQzmCcGZJ9SPl-Q5FcYq6pW9vf-K')"></div>
+<div class="flex-1">
+<h3 class="text-white font-medium text-lg leading-tight">Camiseta "Edipo Rey"</h3>
+<p class="text-white/50 text-sm">Talla: XL | Cantidad: 1</p>
+</div>
+<div class="text-right">
+<p class="text-white font-bold">$35.00</p>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="flex items-center gap-4">
+<div class="size-20 bg-cover bg-center rounded-lg border border-white/10 shrink-0" data-alt="Theatrical limited edition artistic poster design" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDmYdaD7IykzKAygAky8g06QVlLHx_CGWD4k6VRDFc9lEN_Cl8YI1PNRjOQ67twlpQXae6_eAvZ_XaoQWM-15u4-Kq8M6VUnzmWF3ODFBSqqXF-95WrxLy1q_rqul_isCtBr6W0lmF9hoAHiCbiz2iWEfhI9KTQ3tHD2qzAoy8_DGdMF332v6yEAELfc6qettih05Pooie16VDU8WM0Oeco_S8rQxv92UaBCi42sHc6F3a7FMzZhzvnqMnZC547clpGB3RZzoVHO8yq')"></div>
+<div class="flex-1">
+<h3 class="text-white font-medium text-lg leading-tight">Poster Edición Limitada</h3>
+<p class="text-white/50 text-sm">Cantidad: 1</p>
+</div>
+<div class="text-right">
+<p class="text-white font-bold">$20.00</p>
+</div>
+</div>
+</div>
+<!-- Price Breakdown -->
+<div class="p-6 border-t border-white/10 bg-black/20">
+<div class="flex justify-between text-white/70 mb-2">
+<span>Subtotal</span>
+<span>$55.00</span>
+</div>
+<div class="flex justify-between text-white/70 mb-4">
+<span>Envío Estándar</span>
+<span>$5.00</span>
+</div>
+<div class="flex justify-between items-end pt-4 border-t border-white/10">
+<span class="font-serif-forum text-2xl text-mustard-gold uppercase">Total Pagado</span>
+<span class="text-3xl font-bold text-mustard-gold">$60.00</span>
+</div>
+</div>
+</div>
+<!-- Additional Info -->
+<div class="mt-8 text-center space-y-2">
+<p class="text-white/50 text-sm flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">mail</span>
+                            Hemos enviado la confirmación a alejandro@teatro.com
+                        </p>
+</div>
+<!-- Actions -->
+<div class="mt-12 flex flex-col sm:flex-row gap-4 justify-center">
+<button class="bg-deep-maroon hover:bg-red-900 transition-colors text-white font-bold py-4 px-10 rounded-lg flex items-center justify-center gap-2 min-w-[220px]">
+<span class="material-symbols-outlined">shopping_cart</span>
+                            Seguir comprando
+                        </button>
+<button class="bg-transparent border border-white/20 hover:bg-white/5 transition-colors text-white font-medium py-4 px-10 rounded-lg flex items-center justify-center gap-2 min-w-[220px]">
+<span class="material-symbols-outlined">home</span>
+                            Volver al inicio
+                        </button>
+</div>
+</div>
+</main>
+<!-- Footer Section -->
+<footer class="py-10 text-center border-t border-white/5">
+<p class="font-serif-forum text-sm tracking-[0.2em] text-white/30 uppercase">
+                    © 2024 Mitos Escénicos. Todos los derechos reservados.
+                </p>
+</footer>
+</div>
+</div>
+</body></html>

@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Julián Rivera | Mitos Escénicos</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700&amp;family=Forum&amp;family=Elsie+Swash+Caps:wght@400;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#E3B04B",
+                        "mustard": "#E3B04B",
+                        "maroon": "#950c13",
+                        "background-light": "#f8f7f5",
+                        "background-dark": "#120d09",
+                    },
+                    fontFamily: {
+                        "display": ["Be Vietnam Pro", "sans-serif"],
+                        "serif-hero": ["Elsie Swash Caps", "serif"],
+                        "body-classic": ["Forum", "serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .font-forum { font-family: 'Forum', serif; }
+        .font-elsie { font-family: 'Elsie Swash Caps', serif; }
+        .glass-nav { background: rgba(18, 13, 9, 0.85); backdrop-filter: blur(10px); }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-white font-display selection:bg-primary/30">
+<!-- Top Navigation Bar -->
+<header class="fixed top-0 w-full z-50 border-b border-white/10 glass-nav">
+<div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="text-mustard">
+<svg class="w-8 h-8" fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M4 42.4379C4 42.4379 14.0962 36.0744 24 41.1692C35.0664 46.8624 44 42.2078 44 42.2078L44 7.01134C44 7.01134 35.068 11.6577 24.0031 5.96913C14.0971 0.876274 4 7.27094 4 7.27094L4 42.4379Z" fill="currentColor"></path>
+</svg>
+</div>
+<h1 class="text-xl font-bold tracking-tighter uppercase font-display">Mitos Escénicos</h1>
+</div>
+<nav class="hidden md:flex items-center gap-10">
+<a class="text-sm font-medium hover:text-mustard transition-colors uppercase tracking-widest" href="#">Teatro</a>
+<a class="text-sm font-medium hover:text-mustard transition-colors uppercase tracking-widest" href="#">Talleres</a>
+<a class="text-sm font-medium hover:text-mustard transition-colors uppercase tracking-widest" href="#">Tienda</a>
+<a class="text-sm font-medium hover:text-mustard transition-colors uppercase tracking-widest" href="#">Comunidad</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-white/5 rounded-full transition-colors">
+<span class="material-symbols-outlined text-white">search</span>
+</button>
+<button class="p-2 hover:bg-white/5 rounded-full transition-colors relative">
+<span class="material-symbols-outlined text-white">shopping_bag</span>
+<span class="absolute top-1 right-1 w-2 h-2 rounded-full bg-mustard"></span>
+</button>
+<button class="ml-2 bg-maroon hover:bg-maroon/80 px-5 py-2 rounded-lg text-sm font-bold transition-all transform hover:scale-105">
+                    RESERVAR
+                </button>
+</div>
+</div>
+</header>
+<main class="pt-20">
+<!-- Hero Section -->
+<section class="relative min-h-[90vh] flex items-center overflow-hidden">
+<!-- Background Gradient Overlay -->
+<div class="absolute inset-0 bg-gradient-to-r from-background-dark via-background-dark/80 to-transparent z-10"></div>
+<!-- Artist Portrait Background -->
+<div class="absolute right-0 top-0 w-full md:w-2/3 h-full bg-cover bg-center" data-alt="Retrato dramático de Julián Rivera con iluminación teatral" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD9NisAotsCbwsDH_TricUSnZ5_tr0WMtGinbnruFjVW4o3_bDjHyXv0YV0vepBCJhz0Eoah8clO2aVfPcl-GtSQ3t9lCNq0HrwmMsIp5LHIhAj9gXlZQphu_-MF3DfRFr494iiEPES_ABll-ZtEjLxFnklp_HtY8-RTbFKUGKqgv3BXonrYYRL3-hcm7BWr4CiXWQTM1OPl9b8XAdfCKXoX_r4Uqhw4oNt3S4-nc4JzV4Db2cd9xGaunGba_bsoEc76Be0ZggheKnL')">
+</div>
+<!-- Content Container -->
+<div class="relative z-20 max-w-7xl mx-auto px-6 w-full py-20">
+<div class="max-w-2xl">
+<span class="inline-block text-mustard font-bold tracking-[0.3em] uppercase mb-4 text-sm">Director Artístico</span>
+<h2 class="text-7xl md:text-9xl font-elsie text-white mb-8 leading-tight">Julián Rivera</h2>
+<div class="flex gap-4 mb-10">
+<div class="h-[2px] w-20 bg-mustard self-center"></div>
+<p class="text-xl italic text-mustard/90 font-body-classic italic">"El teatro no es un espejo, es un martillo para dar forma a la realidad."</p>
+</div>
+<div class="space-y-6 text-lg leading-relaxed text-gray-300 font-forum max-w-xl">
+<p>
+                            Con más de dos décadas de dedicación a las artes escénicas, Julián Rivera ha transformado la visión del teatro contemporáneo. Su enfoque integra elementos del folclore tradicional con narrativas vanguardistas, creando experiencias inmersivas que desafían la percepción del espectador.
+                        </p>
+<p>
+                            Formado en las grandes escuelas europeas, su regreso a 'Mitos Escénicos' marca una nueva era de exploración estética, donde el mito se encuentra con lo cotidiano.
+                        </p>
+</div>
+<div class="mt-12 flex flex-wrap gap-4">
+<button class="bg-maroon text-white px-8 py-4 rounded-lg font-bold flex items-center gap-2 hover:bg-red-900 transition-all shadow-xl shadow-maroon/20">
+<span class="material-symbols-outlined">mail</span>
+                            Contactar Agente
+                        </button>
+<button class="border border-white/20 hover:border-mustard hover:text-mustard px-8 py-4 rounded-lg font-bold transition-all">
+                            Ver Trayectoria Full
+                        </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Trajectory Section -->
+<section class="py-24 bg-[#1a130e]">
+<div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16">
+<div>
+<h3 class="text-3xl font-elsie text-mustard mb-8 flex items-center gap-4">
+                        Trayectoria Destacada
+                        <span class="h-px grow bg-mustard/20"></span>
+</h3>
+<div class="space-y-8">
+<div class="flex gap-6 group">
+<div class="text-primary font-bold text-2xl font-forum">2023</div>
+<div>
+<h4 class="text-xl font-bold mb-2 group-hover:text-mustard transition-colors">Premio Nacional de Escenografía</h4>
+<p class="text-gray-400 font-forum">Reconocimiento por la obra "Sombras del Ayer" presentada en el Teatro Real.</p>
+</div>
+</div>
+<div class="flex gap-6 group">
+<div class="text-primary font-bold text-2xl font-forum">2021</div>
+<div>
+<h4 class="text-xl font-bold mb-2 group-hover:text-mustard transition-colors">Dirección: Odisea Urbana</h4>
+<p class="text-gray-400 font-forum">Gira internacional por 12 capitales europeas con un elenco de 40 artistas.</p>
+</div>
+</div>
+<div class="flex gap-6 group">
+<div class="text-primary font-bold text-2xl font-forum">2018</div>
+<div>
+<h4 class="text-xl font-bold mb-2 group-hover:text-mustard transition-colors">Fundación de Mitos Escénicos</h4>
+<p class="text-gray-400 font-forum">Establecimiento del colectivo como referente de teatro experimental.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-primary/5 rounded-2xl p-8 border border-primary/10">
+<h3 class="text-3xl font-elsie text-mustard mb-8">Especialidades</h3>
+<ul class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+<li class="flex items-center gap-3 text-lg font-forum">
+<span class="material-symbols-outlined text-primary">theater_comedy</span>
+                            Teatro Clásico
+                        </li>
+<li class="flex items-center gap-3 text-lg font-forum">
+<span class="material-symbols-outlined text-primary">dynamic_form</span>
+                            Performance Experimental
+                        </li>
+<li class="flex items-center gap-3 text-lg font-forum">
+<span class="material-symbols-outlined text-primary">auto_awesome</span>
+                            Diseño de Luces
+                        </li>
+<li class="flex items-center gap-3 text-lg font-forum">
+<span class="material-symbols-outlined text-primary">groups</span>
+                            Dirección de Elenco
+                        </li>
+<li class="flex items-center gap-3 text-lg font-forum">
+<span class="material-symbols-outlined text-primary">history_edu</span>
+                            Dramaturgia
+                        </li>
+<li class="flex items-center gap-3 text-lg font-forum">
+<span class="material-symbols-outlined text-primary">brush</span>
+                            Escenografía Vanguardista
+                        </li>
+</ul>
+</div>
+</div>
+</section>
+<!-- Our Artists Gallery -->
+<section class="py-24 overflow-hidden border-t border-white/5">
+<div class="max-w-7xl mx-auto px-6 mb-12 flex justify-between items-end">
+<div>
+<h3 class="text-mustard uppercase tracking-widest font-bold mb-2">Conoce al Elenco</h3>
+<h2 class="text-5xl font-elsie">Nuestros Artistas</h2>
+</div>
+<div class="flex gap-2">
+<button class="p-3 border border-white/10 rounded-full hover:bg-white/5">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<button class="p-3 border border-white/10 rounded-full hover:bg-white/5">
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+<div class="flex gap-10 px-6 overflow-x-auto pb-8 no-scrollbar scroll-smooth">
+<!-- Artist Item Active -->
+<div class="flex-none flex flex-col items-center group cursor-pointer">
+<div class="relative w-40 h-40 rounded-full p-1 border-2 mb-4 transition-transform group-hover:scale-110 border-mustard">
+<img class="w-full h-full object-cover rounded-full grayscale group-hover:grayscale-0 transition-all" data-alt="Primer plano de Julián Rivera" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7O-105qnOIaj9Bqxit6Q2BF9Vgt_sN2A8T2qGIjo3EBaZrmQgf7ITIulqCJ9MXkhryQM37FVQ4jDjbZyq9BJoC2aD6r_jqPbCWAZMzcjRA_P4MglXOblgO4StDP9dvJ7KrpLcSc9wdh3qFt6tMLy1fjOSse7sNaejkql0EPMRJL33DcL3vNz70yjGSwp40pzrH8pJSPLpVjeg5XJlDVeA4BgAPw-9NUA8OpNHJupTbhMhSYusSkd5Jw9sHBOa3Z4uPEAId9drnP57"/>
+<div class="absolute inset-0 rounded-full bg-mustard/20"></div>
+</div>
+<p class="text-primary font-bold">Julián Rivera</p>
+<span class="text-xs text-gray-500 uppercase tracking-tighter">Director</span>
+</div>
+<!-- Artist Item -->
+<div class="flex-none flex flex-col items-center group cursor-pointer">
+<div class="relative w-40 h-40 rounded-full p-1 border-2 border-transparent hover:border-mustard mb-4 transition-transform group-hover:scale-110 border-mustard">
+<img class="w-full h-full object-cover rounded-full grayscale group-hover:grayscale-0 transition-all" data-alt="Elena Moretti, Actriz de Mitos Escénicos" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHn5MqNujLXWePqZ671f8aQPPkzdrGJjZwFSVPt7dMOFwCkG660UCcPcAezrJ_V3UiK54dCed4GiXR89ZJ029ZQ5qaiv9RNQzUEtJ-6pyVztoZTMg1akbfRKZBuj9hlYVJGbhNtThjlbXxgDbtcYqSkfzju4HjenpAEEwwaBq7oqLGECeRjn3Gx1owivxwlqL9Tq4pU-O_EBhrktBExZTrhdDsoShHJPtR4flyPnLBi4lneAbaRUDC9vOlDNODayXsEHcT7POMkbSG"/>
+</div>
+<p class="text-white group-hover:text-mustard font-bold transition-colors">Elena Moretti</p>
+<span class="text-xs text-gray-500 uppercase tracking-tighter">Actriz</span>
+</div>
+<!-- Artist Item -->
+<div class="flex-none flex flex-col items-center group cursor-pointer">
+<div class="relative w-40 h-40 rounded-full p-1 border-2 border-transparent hover:border-mustard mb-4 transition-transform group-hover:scale-110 border-mustard">
+<img class="w-full h-full object-cover rounded-full grayscale group-hover:grayscale-0 transition-all" data-alt="Marco Valli, Escenógrafo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAfQJEp3C_9mPPKyspC_LH2ypsUFqH82kaxqtF4uLAJmSYTczpAfmAODuwjDXR6IGjHwinRwRFpqHq3Q7t_TcWTgSrQpUw0hx49kR1HgDclNJAAsCgVSwttddNRVVEeT0eX-I3ylpAzfocyIFFl9FWTibqEfPbDYmM_ns4lky1i9R-4Pvu0P-qXi4EYKXzKD3fluurBByrkbpxnnwg4rxgGFHlAF1FUPIeYLZrtLOje7nANkq8HViO2MTJeoBJsbTn7xYCp4QA-FFAk"/>
+</div>
+<p class="text-white group-hover:text-mustard font-bold transition-colors">Marco Valli</p>
+<span class="text-xs text-gray-500 uppercase tracking-tighter">Escenógrafo</span>
+</div>
+<!-- Artist Item -->
+<div class="flex-none flex flex-col items-center group cursor-pointer">
+<div class="relative w-40 h-40 rounded-full p-1 border-2 border-transparent hover:border-mustard mb-4 transition-transform group-hover:scale-110 border-mustard">
+<img class="w-full h-full object-cover rounded-full grayscale group-hover:grayscale-0 transition-all" data-alt="Sofia Rossi, Coreógrafa" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSbwungU54ZfXoCxwJVBrVwtLOy-ehU0ZdbJCLHZmtQYydMckPyJQJMFphHK9Vzw55vRTWWaVmf1sFofwdTunthjKDC4YTsxMIjamGJcX32UWz7y-xtpjzX-6_Xc7pdcSLUPk78R81KJvrJDWo1ZG0rQP_NPTEsLkJ5BBX58NxWn0aVX3fTVVYqB0_Ao-9UFY4HKMvym_ymREOS6Y0pAPQAjjqrHKepvRStbAEM_M2UWc16VRaKWtdWIYgtNU4V_wBhORBThcb5LcN"/>
+</div>
+<p class="text-white group-hover:text-mustard font-bold transition-colors">Sofia Rossi</p>
+<span class="text-xs text-gray-500 uppercase tracking-tighter">Coreógrafa</span>
+</div>
+<!-- Artist Item -->
+<div class="flex-none flex flex-col items-center group cursor-pointer">
+<div class="relative w-40 h-40 rounded-full p-1 border-2 border-transparent hover:border-mustard mb-4 transition-transform group-hover:scale-110 border-mustard">
+<img class="w-full h-full object-cover rounded-full grayscale group-hover:grayscale-0 transition-all" data-alt="Lucas D'Angelo, Actor" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbOk0X5zksc0PxusAZlVtENjWrcqWflk03zv_Jwzh5oA5bJpA9VaIpKSvdyELBqUXb_sJBEuLPxciboHCZKNXSRyQZnM1Rklj8qdMascemcNKXvdKXfysF89nAOamdw97IpjGVJcXhHtL5FwBasI_NpyTq2xXEGsD0JOigcThLpTQBfXtLWTodd16IzUCA9yELK3NVqtcpYGIrKbcDkosdkAGCV3Hbc9KZKXWgVs5wwTGMMGBUCotmOIIqQQhEVG0IRNkeVHRpXQR7"/>
+</div>
+<p class="text-white group-hover:text-mustard font-bold transition-colors">Lucas D'Angelo</p>
+<span class="text-xs text-gray-500 uppercase tracking-tighter">Actor</span>
+</div>
+<!-- Artist Item -->
+<div class="flex-none flex flex-col items-center group cursor-pointer">
+<div class="relative w-40 h-40 rounded-full p-1 border-2 border-transparent hover:border-mustard mb-4 transition-transform group-hover:scale-110 border-mustard">
+<img class="w-full h-full object-cover rounded-full grayscale group-hover:grayscale-0 transition-all" data-alt="Valeria Thorne, Iluminación" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmaZtqld04R5_NjTYviqbjcUxoJIyeoESPWkXwL04U5onKHlsmFUdwHFZCUjluv5tngMR6pohNGkIJfbEqS-H_IzM_5dvP1TCdAgJw-SthhtKilUseQidsC0BaJNlaTH_e5S6NFxIj0iYg4Xn5sb_nOFwL7m0j3VU5XVK2i7EKKBLZyCNNT-LMOw_N_HabWudLxBO3ZbE7LFmvfBnXLYjGjVVPNDgTkIiLnn9dHjnH25auyeu0g1QqjAVBKB-nCrBoHhlFPkBepK7V"/>
+</div>
+<p class="text-white group-hover:text-mustard font-bold transition-colors">Valeria Thorne</p>
+<span class="text-xs text-gray-500 uppercase tracking-tighter">Iluminación</span>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-black py-20 border-t border-white/10">
+<div class="max-w-7xl mx-auto px-6">
+<div class="grid md:grid-cols-4 gap-12 mb-16">
+<div class="col-span-1 md:col-span-2">
+<div class="flex items-center gap-3 mb-6">
+<div class="text-mustard">
+<svg class="w-10 h-10" fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M4 42.4379C4 42.4379 14.0962 36.0744 24 41.1692C35.0664 46.8624 44 42.2078 44 42.2078L44 7.01134C44 7.01134 35.068 11.6577 24.0031 5.96913C14.0971 0.876274 4 7.27094 4 7.27094L4 42.4379Z" fill="currentColor"></path>
+</svg>
+</div>
+<h2 class="text-2xl font-bold tracking-tighter uppercase">Mitos Escénicos</h2>
+</div>
+<p class="text-gray-500 font-forum text-lg max-w-sm">
+                        Espacio de creación, investigación y exhibición de artes escénicas contemporáneas. Donde el teatro clásico se encuentra con el mañana.
+                    </p>
+</div>
+<div>
+<h4 class="text-mustard font-bold uppercase tracking-widest mb-6">Enlaces</h4>
+<ul class="space-y-4 text-gray-400">
+<li><a class="hover:text-white transition-colors" href="#">Nuestras Obras</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Próximos Talleres</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Membresías</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Prensa y Media Kit</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-mustard font-bold uppercase tracking-widest mb-6">Síguenos</h4>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center transition-colors hover:bg-mustard" href="#">
+<svg class="w-5 h-5" fill="currentColor" viewbox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path></svg>
+</a>
+<a class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center transition-colors hover:bg-mustard" href="#">
+<svg class="w-5 h-5" fill="currentColor" viewbox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"></path></svg>
+</a>
+<a class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center transition-colors hover:bg-mustard" href="#">
+<svg class="w-5 h-5" fill="currentColor" viewbox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 4-8 4z"></path></svg>
+</a>
+</div>
+</div>
+</div>
+<div class="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-gray-600 text-sm">
+<p>© 2024 Mitos Escénicos. Todos los derechos reservados.</p>
+<div class="flex gap-8">
+<a class="hover:text-white" href="#">Privacidad</a>
+<a class="hover:text-white" href="#">Términos</a>
+<a class="hover:text-white" href="#">Cookies</a>
+</div>
+</div>
+</div>
+</footer>
+<style>
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</body></html>

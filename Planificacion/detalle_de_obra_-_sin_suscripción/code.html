@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Play Details &amp; Booking | Theater Co.</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700;900&amp;family=Noto+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#D4AF37",
+                        "maroon": "#4A0404",
+                        "background-light": "#f8f7f5",
+                        "background-dark": "#0F0D0B",
+                    },
+                    fontFamily: {
+                        "display": ["Playfair Display", "serif"],
+                        "body": ["Forum", "serif"],
+                        "sans": ["Noto Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0rem",
+                        "lg": "0rem",
+                        "xl": "0rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #181411;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #393028;
+            border-radius: 4px;
+        }
+        .cinematic-shadow {
+            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);
+        }
+    </style>
+<link href="https://fonts.googleapis.com/css2?family=Forum&amp;family=Playfair+Display:ital,wght@0,400..900;1,400..900&amp;display=swap" rel="stylesheet"/></head>
+<body class="bg-background-light dark:bg-background-dark text-white font-body">
+<!-- Top Navigation Bar -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#393028] px-10 py-3 bg-background-light dark:bg-background-dark sticky top-0 z-50">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-4 text-primary">
+<div class="size-6">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M42.4379 44C42.4379 44 36.0744 33.9038 41.1692 24C46.8624 12.9336 42.2078 4 42.2078 4L7.01134 4C7.01134 4 11.6577 12.932 5.96912 23.9969C0.876273 33.9029 7.27094 44 7.27094 44L42.4379 44Z" fill="currentColor"></path>
+</svg>
+</div>
+<h2 class="text-white text-xl font-bold leading-tight tracking-[-0.015em]">Theater Co.</h2>
+</div>
+<nav class="flex items-center gap-9">
+<a class="text-white text-sm font-medium leading-normal hover:text-primary transition-colors font-body" href="#">Shows</a>
+<a class="text-white text-sm font-medium leading-normal hover:text-primary transition-colors font-body" href="#">Venues</a>
+<a class="text-white text-sm font-medium leading-normal hover:text-primary transition-colors font-body" href="#">About</a>
+<a class="text-white text-sm font-medium leading-normal hover:text-primary transition-colors font-body" href="#">Contact</a>
+</nav>
+</div>
+<div class="flex flex-1 justify-end gap-8">
+<label class="flex flex-col min-w-40 !h-10 max-w-64">
+<div class="flex w-full flex-1 items-stretch rounded-lg h-full bg-[#393028]">
+<div class="text-[#baab9c] flex items-center justify-center pl-4 rounded-l-lg">
+<span class="material-symbols-outlined text-[20px]">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 border-none bg-transparent focus:outline-0 focus:ring-0 text-white placeholder:text-[#baab9c] px-4 pl-2 text-sm font-normal" placeholder="Search productions..."/>
+</div>
+</label>
+<button class="p-2 rounded-none bg-primary text-maroon font-bold">
+                Login
+            </button>
+</div>
+</header>
+<main class="max-w-[1280px] mx-auto px-6 py-8 flex flex-col lg:flex-row gap-12">
+<!-- Left Column: Story & Visuals -->
+<div class="flex-1 max-w-[800px]">
+<!-- Breadcrumbs -->
+<div class="flex flex-wrap gap-2 mb-6">
+<a class="text-[#baab9c] text-sm font-medium hover:text-white" href="#">Home</a>
+<span class="text-[#baab9c] text-sm">/</span>
+<a class="text-[#baab9c] text-sm font-medium hover:text-white" href="#">Productions</a>
+<span class="text-[#baab9c] text-sm">/</span>
+<span class="text-primary text-sm font-medium uppercase tracking-widest">Macbeth</span>
+</div>
+<!-- Title Section -->
+<div class="mb-10">
+<h1 class="text-primary tracking-widest text-7xl font-black uppercase leading-none font-display italic">
+                    MACBETH
+                </h1>
+<p class="text-[#baab9c] text-lg mt-2 font-medium">Directed by Julianne Thorne • 2h 30m • Rated PG-13</p>
+</div>
+<!-- Gallery Carousel -->
+<div class="mb-12">
+<div class="flex overflow-x-auto gap-4 pb-4 scrollbar-hide snap-x">
+<div class="flex-none w-full md:w-[600px] snap-center">
+<div class="w-full aspect-[16/9] bg-center bg-no-repeat bg-cover rounded-xl" data-alt="Dramatic stage scene with Macbeth and witches" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBK8XLVd6FfG_zJlsn9yhlYueKuEejYvqH-slQeFbW0HbXv3saBaFiDt_odgAiCErab5aTPhWdA0Qb2EUvRXxjlTge4EjdcLTclOzTVqq9bn9G5RYtjpv99wF1BNDu-6kfWIV3Sw8n2Q9tGSONrd4MAp7D7cLhssPmpy8VTwa5Y-5lzpX_2NC2z0S_ssx-oNVk9L1A4FsHa54D9YS5FT7UwDR2M8P2epwpKv43ru3uvuejTjV1UKLs3EEVN5Ti2ZWob3YCRP4L3BFl6");'>
+</div>
+<p class="mt-2 text-sm text-[#baab9c]">Act I Scene I: The Prophecy</p>
+</div>
+<div class="flex-none w-full md:w-[600px] snap-center">
+<div class="w-full aspect-[16/9] bg-center bg-no-repeat bg-cover rounded-xl" data-alt="Lady Macbeth in a dark candlelit corridor" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDKpxMQXfm5seSZee4boeMzM_Ngh6ILV7eRlC4F8_wcPkPF-pJBLe1S76bS_8XJZC6_j-Um9QdOimd5udesC0xCu54NLz58D3_cPG7dlKsMLWqTC__Q_QAoJyOf6pAq0T21t3aX0foNAPp9XYEIUZqluoD6AiBn2mwnNa-siLdOgwB3X_Oj27nUd_3iKXDChhlftqP6qwfu1uHzUemL-vByyNtHRFooI_Cj_nHcSOIHh6a4G-0OxbDyzefm7-Ql6ydRtUdxUPbvp-Cv");'>
+</div>
+<p class="mt-2 text-sm text-[#baab9c]">Act II Scene II: The Chamber</p>
+</div>
+</div>
+</div>
+<!-- Synopsis Section -->
+<div class="mb-12">
+<h2 class="text-white text-2xl font-display uppercase tracking-widest border-l-4 border-primary pl-4 mb-4">Synopsis</h2>
+<div class="space-y-4 text-lg text-[#d1c2b5] leading-relaxed">
+<p>
+                        William Shakespeare’s classic tragedy of ambition and betrayal is brought to life in this visceral new production. Set against the backdrop of a decaying empire, Macbeth follows the harrowing journey of a decorated general who, spurred by prophecy and his wife's ruthless ambition, murders his way to the Scottish throne.
+                    </p>
+<p>
+                        As the cost of his crimes begins to mount, Macbeth descends into a nightmare of paranoia and madness. This production explores the psychological toll of power and the supernatural forces that lurk in the shadows of the human heart.
+                    </p>
+</div>
+</div>
+<!-- Cast & Creative -->
+<div class="mb-12">
+<h2 class="text-white text-2xl font-display uppercase tracking-widest border-l-4 border-primary pl-4 mb-4">Cast &amp; Creative</h2>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+<div class="flex flex-col items-center text-center">
+<div class="w-24 h-24 rounded-full bg-cover bg-center mb-3 ring-2 ring-primary ring-offset-4 ring-offset-background-dark" data-alt="Headshot of lead actor playing Macbeth" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA7sYd6ZihaxGu_S5UD6uPQn_RxsKkvaTMtjE2LHMdRX5WOW9WUjShl8bzTbe-9VWwmdxdmGaLzpJjSz4oqhgOSinjMYghXCpvRCRAI8DiI16FSrq2lWYv8G-m_EhK42R2mTrw7n9fMImYpSyDLY1G7T8HDeCPZuzcXjWTHftUB5VB5a7cMwX_qOZ2Z0giCq01jMdp38yDT4ar_7P8ztUGuERJ02ZLQwhOCLQH3xHcU7uKjt8SpcIUCi54kLAoMVUKe-V35mkqhJNoB");'></div>
+<p class="font-bold">David Garrick</p>
+<p class="text-sm text-[#baab9c]">Macbeth</p>
+</div>
+<div class="flex flex-col items-center text-center">
+<div class="w-24 h-24 rounded-full bg-cover bg-center mb-3 ring-2 ring-transparent" data-alt="Headshot of lead actress playing Lady Macbeth" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBV7C4P3WEOcXDIt7lw7Y0zEy8eKbRkm2duEgomSNRERYuwU8AaF8cI1DYlhHG5WhDnvxJccDdaCVN6rkI7VVj7guGbgUvX3untzvUEHcGTHSSP_k5bltMa8Q2b3wE5iP44OsdUyBPKF2ugjltnh68tBIPCwMWX66vT5zysLd-aLJ5sQEBZ2jwAt1INCnDKNMXiWHlQWPbZoQDCOcOljhf_N1LqdsGNal_LvwJA7GouGDo_OvOg6zTwiaevn9BuohixeahLbQpLOzgM");'></div>
+<p class="font-bold">Sarah Siddons</p>
+<p class="text-sm text-[#baab9c]">Lady Macbeth</p>
+</div>
+<div class="flex flex-col items-center text-center">
+<div class="w-24 h-24 rounded-full bg-cover bg-center mb-3 ring-2 ring-transparent" data-alt="Headshot of supporting actor playing Macduff" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCJOJ5YWM13o-NNcRrVCkcvVqI3VidcJqM05ccssQpRvqSYeDMu6fEoujo0q77x1OkLs4D6rZbUyzdL1GvY1MXJbT8hExyKtlFjEuJGaVKhRjAjyZXY13_R4NHNhHh9zYs8He1Ol8STQ2jmTb0tm8o_d2FlNHlZJCKl4MAkqSK-g7X3PUpZJ_-7RE4JQ05OBumeRrBZqNIYQOVaBALxJ8oIRvvrM9X0rKlhakPK-tbkR1Wir0pMhg9vCgRR3ZKiC_Z-aHh7luVQqRg2");'></div>
+<p class="font-bold">Ian McKellen</p>
+<p class="text-sm text-[#baab9c]">Macduff</p>
+</div>
+<div class="flex flex-col items-center text-center">
+<div class="w-24 h-24 rounded-full bg-cover bg-center mb-3 ring-2 ring-transparent" data-alt="Headshot of supporting actress playing First Witch" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBwpwG07QeHZkT6FUnkgnejjb87sL8nnyZGIBWKNvtdo-E2-tZ75T04yVAivViDQXAdTdc05S3jBIy49vl9fQgWq7KjwXam_V7xP4-VHNV325X7QOmeS2vvi8PMUgSG4JG3F6pjoY7lEC7WGVs52gpQFO8s3fd6nSQYiHC3p74r19FMzju6tU8k8yVVP_p5_71bh54BfYbiQV4ml4H_cv-_hrsPDRDlZRJcJQZNO6YWDXDW4LEpCTbeTjlAloUcsIQgda0WfloIxr2O");'></div>
+<p class="font-bold">Cate Blanchett</p>
+<p class="text-sm text-[#baab9c]">First Witch</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Booking Widget (Sticky) -->
+<aside class="w-full lg:w-[380px]">
+<div class="sticky top-24 p-8 bg-maroon/20 rounded-none border border-primary/30 cinematic-shadow font-body">
+<h3 class="text-xl font-bold mb-6 text-white flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">event_seat</span>
+                    Book Your Tickets
+                </h3>
+<!-- Calendar Section -->
+<div class="mb-6">
+<div class="flex items-center justify-between mb-4">
+<span class="font-medium">November 2024</span>
+<div class="flex gap-2">
+<button class="p-1 rounded hover:bg-[#393028]"><span class="material-symbols-outlined text-sm">chevron_left</span></button>
+<button class="p-1 rounded hover:bg-[#393028]"><span class="material-symbols-outlined text-sm">chevron_right</span></button>
+</div>
+</div>
+<div class="grid grid-cols-7 gap-2 text-center text-xs font-bold text-[#baab9c] mb-2">
+<div>M</div><div>T</div><div>W</div><div>T</div><div>F</div><div>S</div><div>S</div>
+</div>
+<div class="grid grid-cols-7 gap-1 text-center text-sm">
+<!-- Simplified Calendar -->
+<div class="p-2 text-[#5a4a3c]">28</div>
+<div class="p-2 text-[#5a4a3c]">29</div>
+<div class="p-2 text-[#5a4a3c]">30</div>
+<div class="p-2 text-[#5a4a3c]">31</div>
+<button class="p-2 rounded hover:bg-[#393028] border border-primary/20">1</button>
+<button class="w-full py-4 bg-maroon text-primary border border-primary font-black rounded-none uppercase tracking-[0.2em] hover:bg-primary hover:text-maroon transition-all active:scale-95 flex items-center justify-center gap-2">2</button>
+<button class="p-2 rounded hover:bg-[#393028] border border-primary/20">3</button>
+<button class="p-2 rounded hover:bg-[#393028] border border-primary/20">4</button>
+<button class="p-2 rounded hover:bg-[#393028] border border-primary/20">5</button>
+<button class="p-2 rounded hover:bg-[#393028] border border-primary/20">6</button>
+<button class="p-2 rounded hover:bg-[#393028] border border-primary/20">7</button>
+<button class="p-2 rounded hover:bg-[#393028] border border-primary/20">8</button>
+<button class="p-2 rounded hover:bg-[#393028] border border-primary/20">9</button>
+<button class="p-2 rounded hover:bg-[#393028] border border-primary/20">10</button>
+</div>
+</div>
+<!-- Time Slots -->
+<div class="mb-6">
+<p class="text-xs font-bold uppercase tracking-wider text-[#baab9c] mb-3">Available Times</p>
+<div class="flex flex-wrap gap-2">
+<button class="px-4 py-2 rounded-lg border border-[#393028] hover:border-primary text-sm font-medium transition-all">
+                            14:30
+                        </button>
+<button class="px-4 py-2 rounded-none bg-primary/10 text-primary border border-primary text-sm font-bold">
+                            19:30
+                        </button>
+</div>
+</div>
+<!-- Price/Summary -->
+<div class="border-t border-[#393028] pt-6 mb-6">
+<div class="flex justify-between items-center mb-1">
+<span class="text-[#baab9c] text-sm">Tickets from</span>
+<span class="text-2xl font-black">$45.00</span>
+</div>
+<p class="text-xs text-[#baab9c]">Excl. booking fee. Free cancellation up to 48h.</p>
+</div>
+<!-- CTA -->
+<button class="w-full py-4 bg-maroon text-primary border border-primary font-black rounded-none uppercase tracking-[0.2em] hover:bg-primary hover:text-maroon transition-all active:scale-95 flex items-center justify-center gap-2">
+                    Select Seats
+                    <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<p class="text-center text-[#baab9c] text-xs mt-4">
+<span class="material-symbols-outlined align-middle text-[14px]">bolt</span>
+                    High demand: 12 people looking at this date
+                </p>
+</div>
+</aside>
+</main>
+<!-- Footer -->
+<footer class="bg-[#120e0c] border-t border-[#393028] py-12 px-10 mt-20">
+<div class="max-w-[1280px] mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 font-body">
+<div class="col-span-1 md:col-span-1 font-body">
+<div class="flex items-center gap-4 text-primary mb-6 font-body">
+<div class="size-6 font-body">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M42.4379 44C42.4379 44 36.0744 33.9038 41.1692 24C46.8624 12.9336 42.2078 4 42.2078 4L7.01134 4C7.01134 4 11.6577 12.932 5.96912 23.9969C0.876273 33.9029 7.27094 44 7.27094 44L42.4379 44Z" fill="currentColor"></path>
+</svg>
+</div>
+<h2 class="text-white text-xl font-bold leading-tight tracking-[-0.015em]">Theater Co.</h2>
+</div>
+<p class="text-[#baab9c] text-sm leading-relaxed font-body">
+                    Elevating the art of performance through visceral storytelling and immersive production design since 1994.
+                </p>
+</div>
+<div class="font-body">
+<h4 class="text-white font-bold mb-4 uppercase text-xs tracking-widest">Performances</h4>
+<ul class="text-[#baab9c] text-sm space-y-2 font-body">
+<li><a class="hover:text-primary" href="#">Current Season</a></li>
+<li><a class="hover:text-primary" href="#">Upcoming Shows</a></li>
+<li><a class="hover:text-primary" href="#">Educational Outreach</a></li>
+<li><a class="hover:text-primary" href="#">Past Productions</a></li>
+</ul>
+</div>
+<div class="font-body">
+<h4 class="text-white font-bold mb-4 uppercase text-xs tracking-widest">Visit Us</h4>
+<ul class="text-[#baab9c] text-sm space-y-2 font-body">
+<li>123 Dramatic Way</li>
+<li>Arts District, NY 10012</li>
+<li>Box Office: (555) 123-4567</li>
+</ul>
+</div>
+
+</div>
+<div class="max-w-[1280px] mx-auto mt-12 pt-8 border-t border-[#393028] text-center text-xs text-[#5a4a3c] font-body">
+            © 2024 Theater Co. All rights reserved. Designed for the stage.
+        </div>
+</footer>
+</body></html>

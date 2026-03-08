@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Digital Ticket - Mitos Escénicos</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@100;300;400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#f27f0d", // Mustard Gold style
+                        "maroon": "#950c13",
+                        "background-light": "#f8f7f5",
+                        "background-dark": "#000000",
+                    },
+                    fontFamily: {
+                        "display": ["Be Vietnam Pro", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .ticket-cutout {
+            position: relative;
+        }
+        .ticket-cutout::before, .ticket-cutout::after {
+            content: '';
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            background-color: #000000;
+            border-radius: 50%;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+        }
+        .ticket-cutout::before { left: -14px; }
+        .ticket-cutout::after { right: -14px; }
+        
+        .perforation {
+            border-top: 2px dashed #333;
+            width: 100%;
+            height: 1px;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen flex flex-col items-center justify-center p-4">
+<!-- Desktop Container (Simulating Mobile Viewport) -->
+<div class="w-full max-w-[420px] mx-auto flex flex-col gap-6">
+<!-- Header / Nav -->
+<header class="flex items-center justify-between w-full px-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">theater_comedy</span>
+<h2 class="text-xl font-bold tracking-tight uppercase">Mitos Escénicos</h2>
+</div>
+<button class="p-2 rounded-full hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</header>
+<!-- Ticket Main Body -->
+<div class="relative bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden shadow-2xl flex flex-col">
+<!-- Poster Image Header -->
+<div class="relative h-48 w-full overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-t from-zinc-900 to-transparent z-10"></div>
+<img alt="Dark theatrical stage with dramatic lighting" class="w-full h-full object-cover" data-alt="Dramatic theatrical stage with red curtains and spotlight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0bWJ9_o3F4qzh9F1Aoj1JqbdmF_x8VdIJX-oTC9HvEazSrECoxysS3S6V1PzQKp9D_aC0VixuV58JfE29nMJ0T1SeM8Dq2vqaicEUSA_IEaqKGtc6wMzpZcp7QkbS9V47rKTFNfB8gIc9cJ5f7S9O2k02TKncnveeZox_s0vZdufaDhB91YhK21J_Jl_qTA4fvlEsOvaKASYscRLhi1HgZBQiMUg0XCbB9jUyycMfp22v6cxnxgOs-nkooqPRBbGMCZ__hnXHhn3R"/>
+<div class="absolute bottom-4 left-6 z-20">
+<span class="bg-primary text-black text-[10px] font-black px-2 py-0.5 rounded uppercase tracking-widest">Confirmed Event</span>
+<h1 class="text-4xl font-black text-white mt-1 tracking-tighter uppercase italic">MACBETH</h1>
+</div>
+</div>
+<!-- Performance Details -->
+<div class="p-6 grid grid-cols-2 gap-y-6 gap-x-4 border-b border-zinc-800/50">
+<div class="flex flex-col">
+<span class="text-[10px] uppercase tracking-widest text-primary font-bold">Date</span>
+<span class="text-lg font-medium">Oct 25, 2024</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[10px] uppercase tracking-widest text-primary font-bold">Time</span>
+<span class="text-lg font-medium">20:30</span>
+</div>
+<div class="flex flex-col col-span-2">
+<span class="text-[10px] uppercase tracking-widest text-primary font-bold">Venue</span>
+<span class="text-lg font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">location_on</span>
+                        Teatro Principal
+                    </span>
+</div>
+<div class="flex flex-col col-span-2">
+<span class="text-[10px] uppercase tracking-widest text-primary font-bold">Seating</span>
+<span class="text-lg font-medium">General Admission (2 Tickets)</span>
+</div>
+</div>
+<!-- Perforation Divider -->
+<div class="ticket-cutout relative flex items-center px-4 py-2">
+<div class="perforation"></div>
+</div>
+<!-- QR Code Section -->
+<div class="p-8 flex flex-col items-center justify-center bg-zinc-900">
+<div class="bg-white p-4 rounded-lg shadow-inner mb-4">
+<img alt="Entry Validation QR Code" class="w-40 h-40" data-alt="Modern high contrast QR code for ticket entry" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCx9p-sPhkupa9Ghl-zw8kc55P9yHjCQquX6JU9klWLPsDdeCp7g79reFNlAqpatbvm8hXPXwfjw_SW80NLkvwoBBkOV6y721DbfQMak5C6wr6ak8qmZVOtYLkLYdLvoGyAUvM_aXI6ds0BlKLJT-HZZM-yg-YXhoJhuu_18LuLr3lV0Z3EBw-zrxcL8i0Z30Xr3rIwKekWM5oOhwaxY6_dRvTzesLOTciVYdFkFkmY-Hn2cC96B2g6GIQscUaSkbYv9ccp6eKZDmEk"/>
+</div>
+<p class="text-zinc-500 text-xs font-mono tracking-widest mb-2">#ME-88294011</p>
+<p class="text-zinc-400 text-[10px] text-center uppercase leading-relaxed px-10">Scan at the entrance for validation. Please arrive 15 minutes before the performance starts.</p>
+</div>
+<!-- CTA Section -->
+<div class="p-6 bg-zinc-950/50 flex flex-col gap-3">
+<button class="w-full bg-maroon hover:bg-maroon/90 text-white font-bold py-4 rounded-lg flex items-center justify-center gap-2 transition-all active:scale-95 shadow-lg">
+<span class="material-symbols-outlined">picture_as_pdf</span>
+                    Download PDF Ticket
+                </button>
+<a class="w-full text-center py-2 text-zinc-500 hover:text-primary text-sm font-medium flex items-center justify-center gap-1 transition-colors" href="#">
+<span class="material-symbols-outlined text-sm">arrow_back</span>
+                    Back to Profile
+                </a>
+</div>
+</div>
+<!-- Secondary Info / Support -->
+<footer class="flex justify-between items-center px-4 py-4 opacity-60">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">help</span>
+<span class="text-xs">Support</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">share</span>
+<span class="text-xs">Transfer Ticket</span>
+</div>
+</footer>
+</div>
+</body></html>

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Teatro Company - Dramatic Experiences Await</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@100;300;400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#950c13",
+                        "accent-gold": "#E3B04B",
+                        "accent-purple": "#503A8E",
+                        "background-light": "#f8f7f5",
+                        "background-dark": "#181411",
+                    },
+                    fontFamily: {
+                        "display": ["serif"],
+                        "body": ["Forum", "sans-serif"],
+                        "script": ["cursive"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }</script>
+<style>
+        body {
+            font-family: "Forum", sans-serif;
+        }
+        .font-serif-brand {
+            font-family: serif;
+        }
+        .font-script-brand {
+            font-family: cursive;
+        }
+        .poster-hover:hover .hover-overlay {
+            opacity: 1;
+        }
+        .poster-hover:hover {
+            border-color: #950c13;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white antialiased font-body">
+<div class="relative flex min-h-screen flex-col overflow-x-hidden">
+<!-- Navigation Bar -->
+<header class="sticky top-0 z-50 w-full border-b border-white/10 bg-background-dark/80 backdrop-blur-md">
+<div class="mx-auto flex max-w-[1200px] items-center justify-between px-6 py-4">
+<div class="flex items-center gap-3 text-primary">
+<span class="material-symbols-outlined text-3xl" data-icon="theater_comedy">theater_comedy</span>
+<h2 class="text-white text-xl font-bold tracking-tight font-serif-brand">Mitos Escénicos</h2>
+</div>
+<nav class="hidden md:flex flex-1 justify-center gap-10">
+<a class="text-white/80 hover:text-primary text-sm font-medium transition-colors" href="#">Funciones</a>
+<a class="text-white/80 hover:text-primary text-sm font-medium transition-colors" href="#">Nosotros</a>
+<a class="text-white/80 hover:text-primary text-sm font-medium transition-colors" href="#">Boletos</a>
+<a class="text-white/80 hover:text-primary text-sm font-medium transition-colors" href="#">Contacto</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="bg-primary">Iniciar sesión</button>
+</div>
+</div>
+</header>
+<main class="flex-1">
+<!-- Hero Section -->
+<section class="relative w-full px-6 py-8">
+<div class="mx-auto max-w-[1200px]">
+<div class="relative overflow-hidden rounded-xl bg-slate-900">
+<div class="flex min-h-[600px] flex-col justify-end p-8 md:p-16 bg-cover bg-center" data-alt="Dramatic stage lighting on a theater performance" style='background-image: linear-gradient(to top, rgba(24, 20, 17, 0.9) 0%, rgba(24, 20, 17, 0.2) 60%, rgba(24, 20, 17, 0.1) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuBWbKQTcjNAtv1ZVCnDjxOWBkwV1r-m3S_CfCC-Lg_UN12b6VKpXlLAacVi5CQv_d7E8CrSrJgDlFrOT2cncZm2ZRHwZntHjPL1zPK7TI9tVfrX4H4l3QqMW8VUPXV4xCtr1GAICK0FOAMaGXg7ioi23zNMd5eyFGCGWlnDfYGkTGZezk1TwX7YuOgwy27_6t2KhGZYhfHTcC6xKD-97puj5f6k_yOvlTZkyW0IROG3GvF4K1g1XGEVXsVQji1tEzUcuKJuv5yqLM60");'>
+<div class="max-w-2xl space-y-4">
+<span class="inline-block px-3 py-1 text-accent-gold font-bold tracking-widest rounded"><span class="font-script-brand text-lg lowercase">Producción Insignia</span></span>
+<h1 class="text-white text-5xl md:text-7xl font-black leading-tight tracking-tighter font-serif-brand">Le esperan experiencias dramáticas</h1>
+<p class="text-white/70 text-lg md:text-xl font-normal leading-relaxed font-body">Viva el poder puro de las representaciones en directo con nuestra aclamada producción insignia. Una noche de misterio, pasión y brillantez artística.</p>
+<div class="flex flex-wrap gap-4 pt-4">
+<button class="bg-primary">Comprar boletos</button>
+<button class="flex min-w-[160px] items-center justify-center rounded-lg h-12 px-8 border border-white/20 text-white text-base font-bold hover:bg-white/10">Ver tráiler</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Current Season Section -->
+<section class="w-full px-6 py-12">
+<div class="mx-auto max-w-[1200px]">
+<div class="flex items-end justify-between mb-8 px-2">
+<div>
+<p class="font-bold uppercase tracking-widest text-xs mb-2 text-accent-gold">Boletos desde $45</p>
+<h2 class="text-white text-3xl font-bold tracking-tight font-serif-brand">Temporada actual</h2>
+</div>
+<a class="text-primary text-sm font-bold flex items-center gap-2 hover:underline" href="#">Ver calendario completo <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Poster 1 -->
+<div class="group flex flex-col gap-4">
+<div class="relative aspect-[3/4] overflow-hidden rounded-xl border-2 border-transparent transition-all duration-300 group-hover:border-primary group-hover:shadow-[0_0_20px_rgba(227,176,75,0.3)]">
+<div class="h-full w-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="Theater poster with dramatic blue and red lighting" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD9hrnUwQ3z8iYlrMH6ZUEAyB1Wbx0tg--5hdVrXZajChoX2OabAetgQ6NzWo7ZaLho973EoaYTQ2RsN6hdBvsgak9kOjCC18dJXMl-_eKZ02K7cwqMHSgw331iEfFwtMa-vKaerTj50p7BegA0-nZAaWwlCce7bGH3ntwrO4XU4yC7cUi8BMkQ29eB4NJUu7YqNHJxyjnxeHJC3EbCJwahWtOajnITRVL02QjnxBXUt41b5T6CLFnfRfXEIYP0u8gYxoMAf7f8VbXH");'>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-background-dark via-transparent to-transparent opacity-60"></div>
+<div class="absolute bottom-4 left-4 right-4 translate-y-4 opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100">
+<button class="bg-primary">Reserva rápida</button>
+</div>
+</div>
+<div class="px-2">
+<h3 class="text-white text-xl font-bold font-serif-brand">The Midnight Tragedy</h3>
+<div class="flex items-center gap-2 text-white/50 text-sm mt-1">
+<span class="material-symbols-outlined text-sm">calendar_today</span>
+<span>Oct 12 - Nov 05</span>
+</div>
+<p class="text-sm font-bold mt-2 text-accent-gold font-body">Boletos desde $45</p>
+</div>
+</div>
+<!-- Poster 2 -->
+<div class="group flex flex-col gap-4">
+<div class="relative aspect-[3/4] overflow-hidden rounded-xl border-2 border-transparent transition-all duration-300 group-hover:border-primary group-hover:shadow-[0_0_20px_rgba(227,176,75,0.3)]">
+<div class="h-full w-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="Abstract silhouettes on a theater stage" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuACLI7t6L-tJnkI5erG3a5KIw0WZzMV5_4wsD_guA6P8bmH9unjhk6I3LBNiGzbUgISirmMRo_fgheG6OVRPP8yPNzm71QprTbdknGY-QOMw1qDLByAi2tSWXHjeAqFy6hQptVC3ysOu_wMUL9jRtx2raZq6hwY0bBpp6wx4SVkyiS8SVB0bAwPpObkAwbJ3WYC7tHNcUS1Q1HG9sQ8FqY7kWmOwjsw40T3tEi3xrV1UJd2GgZQ6o6VqJbcVvc-3z5tyHXp6K3sjHdo");'>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-background-dark via-transparent to-transparent opacity-60"></div>
+<div class="absolute bottom-4 left-4 right-4 translate-y-4 opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100">
+<button class="bg-primary">Reserva rápida</button>
+</div>
+</div>
+<div class="px-2">
+<h3 class="text-white text-xl font-bold font-serif-brand">Echoes of Silence</h3>
+<div class="flex items-center gap-2 text-white/50 text-sm mt-1">
+<span class="material-symbols-outlined text-sm">calendar_today</span>
+<span>Nov 15 - Dec 10</span>
+</div>
+<p class="text-sm font-bold mt-2 text-accent-gold font-body">Boletos desde $38</p>
+</div>
+</div>
+<!-- Poster 3 -->
+<div class="group flex flex-col gap-4">
+<div class="relative aspect-[3/4] overflow-hidden rounded-xl border-2 border-transparent transition-all duration-300 group-hover:border-primary group-hover:shadow-[0_0_20px_rgba(227,176,75,0.3)]">
+<div class="h-full w-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="City lights background for a theater production" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDG4P78VZKPjIyZ4AsI33wjCPspnS9Jctt_5SwyuFZ5Z_8kczw2P9gL-v7qI-01KaKToWCLK-UJ3z8g1KCEBu5p3S5kijTMkilx214C2FPnmAJOXS0ZlVuOaAFULNtPBdnOasZm6ZOEuIdS73Z5QQ5EdJQ1udVyBdEGUv1AVM861lZ7odaRs98zMe6HKFlfWzXy--Mig2ApqzbMBdL63ZhziREY9-mbykt2cYZkiewAA_MdWJGQi4qxgVyXmJT3yKqgGZ7Blye4ZuxK");'>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-background-dark via-transparent to-transparent opacity-60"></div>
+<div class="absolute bottom-4 left-4 right-4 translate-y-4 opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100">
+<button class="bg-primary">Reserva rápida</button>
+</div>
+</div>
+<div class="px-2">
+<h3 class="text-white text-xl font-bold font-serif-brand">City Lights</h3>
+<div class="flex items-center gap-2 text-white/50 text-sm mt-1">
+<span class="material-symbols-outlined text-sm">calendar_today</span>
+<span>Dec 20 - Jan 15</span>
+</div>
+<p class="text-sm font-bold mt-2 text-accent-gold font-body">Boletos desde $52</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Upcoming Productions Teaser -->
+<section class="w-full px-6 py-20 bg-black/40">
+<div class="mx-auto max-w-[1200px]">
+<div class="mb-12 text-center">
+<h2 class="text-white text-4xl font-bold tracking-tight font-serif-brand">Próximas producciones</h2>
+<div class="bg-primary"></div>
+</div>
+<div class="space-y-12">
+<!-- Teaser Item 1 -->
+<div class="flex flex-col md:flex-row items-center justify-between border-b border-white/5 pb-12 group">
+<div class="md:w-1/2">
+<h4 class="text-sm font-bold uppercase tracking-widest mb-2 text-accent-gold">Clásico moderno</h4>
+<h3 class="text-white text-5xl md:text-6xl font-black transition-colors group-hover:text-primary font-serif-brand">MACBETH: REBORN</h3>
+</div>
+<div class="md:w-1/3 mt-6 md:mt-0 text-left md:text-right">
+<p class="text-white/60 text-lg mb-4 font-body">A futuristic reimagining of the Shakespearean tragedy.</p>
+<p class="text-white text-2xl font-bold italic font-script-brand text-accent-gold opacity-90 font-body">Estreno Primavera 2024</p>
+</div>
+</div>
+<!-- Teaser Item 2 -->
+<div class="flex flex-col md:flex-row items-center justify-between border-b border-white/5 pb-12 group">
+<div class="md:w-1/2">
+<h4 class="text-sm font-bold uppercase tracking-widest mb-2 text-accent-gold">Guion original</h4>
+<h3 class="text-white text-5xl md:text-6xl font-black transition-colors group-hover:text-primary font-serif-brand">VELVET SKIES</h3>
+</div>
+<div class="md:w-1/3 mt-6 md:mt-0 text-left md:text-right">
+<p class="text-white/60 text-lg mb-4 font-body">An intimate exploration of human connection in the digital age.</p>
+<p class="text-white text-2xl font-bold italic font-script-brand text-accent-gold opacity-90 font-body">Estreno Verano 2024</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Newsletter/CTA Section -->
+
+</main>
+<!-- Footer -->
+<footer class="w-full bg-background-dark border-t border-white/5 px-6 py-12">
+<div class="mx-auto max-w-[1200px] flex flex-col md:flex-row justify-between items-start gap-12">
+<div class="space-y-4">
+<div class="flex items-center gap-3 text-primary">
+<span class="material-symbols-outlined text-3xl" data-icon="theater_comedy">theater_comedy</span>
+<h2 class="text-white text-xl font-bold tracking-tight font-serif-brand">Mitos Escénicos</h2>
+</div>
+<p class="text-white/40 text-sm max-w-xs leading-relaxed font-body">
+                        Redefining the theatrical experience since 1998. Dedicated to bringing world-class performances to our local community.
+                    </p>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-12">
+<div class="space-y-4">
+<h4 class="text-white font-bold">Explorar</h4>
+<ul class="space-y-2 text-white/50 text-sm">
+<li class="font-body"><a class="hover:text-primary" href="#">Funciones actuales</a></li>
+<li class="font-body"><a class="hover:text-primary" href="#">Próximas</a></li>
+<li class="font-body"><a class="hover:text-primary" href="#">Sobre nosotros</a></li>
+</ul>
+</div>
+<div class="space-y-4"><h4 class="text-white font-bold">Redes</h4>
+<ul class="space-y-2 text-white/50 text-sm">
+<li class="font-body">
+<a class="hover:text-primary flex items-center gap-2" href="#">
+<span class="material-symbols-outlined text-lg">brand_awareness</span>
+Instagram
+</a>
+</li>
+<li class="font-body">
+<a class="hover:text-primary flex items-center gap-2" href="#">
+<span class="material-symbols-outlined text-lg">public</span>
+Facebook
+</a>
+</li>
+<li class="font-body">
+<a class="hover:text-primary flex items-center gap-2" href="#">
+<span class="material-symbols-outlined text-lg">video_library</span>
+TikTok
+</a>
+</li>
+</ul></div>
+<div class="space-y-4">
+<h4 class="text-white font-bold">Visitar</h4>
+<ul class="space-y-2 text-white/50 text-sm">
+<li class="font-body">123 Theater Lane</li>
+<li class="font-body">Arts District, NY</li>
+<li class="font-body">(555) 012-3456</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="mx-auto max-w-[1200px] mt-12 pt-8 border-t border-white/5 flex flex-col sm:flex-row justify-between items-center gap-4">
+<p class="text-white/30 text-xs font-body">© 2023 Teatro Theater Company. All rights reserved.</p>
+<div class="flex gap-6">
+<a class="text-white/30 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-xl">brand_awareness</span>
+</a>
+<a class="text-white/30 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-xl">share</span>
+</a>
+<a class="text-white/30 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-xl">group</span>
+</a>
+</div>
+</div>
+</footer>
+</div>
+</body></html>

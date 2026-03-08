@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Mitos Escénicos - Registro de Actor</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@100;300;400;500;700;900&amp;family=Forum&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#f27f0d",
+                        "deep-maroon": "#950c13",
+                        "background-light": "#f8f7f5",
+                        "background-dark": "#000000",
+                    },
+                    fontFamily: {
+                        "display": ["Be Vietnam Pro", "sans-serif"],
+                        "theatrical": ["Forum", "serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>body {
+    font-family: "Be Vietnam Pro", sans-serif;
+    background-color: #000000
+    }
+.theatrical-title {
+    font-family: "Forum", serif
+    }
+.glass-panel {
+    background: rgba(30, 30, 30, 0.6);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1)
+    }
+.spotlight {
+    background: radial-gradient(circle at 50% -20%, rgba(242, 127, 13, 0.1) 0%, rgba(0, 0, 0, 0) 70%)
+    }
+.curtain-bg {
+    background: #000000;
+    }</style>
+</head>
+<body class="bg-background-dark text-white min-h-screen flex flex-col items-center selection:bg-primary selection:text-white overflow-x-hidden" style="background-color: #000000;">
+<!-- Subtle Background Elements -->
+
+
+<div class="layout-container flex h-full grow flex-col w-full max-w-[1200px] px-4 md:px-10 lg:px-20">
+<!-- Top Navigation / Branding -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-white/10 py-6 mb-8">
+<div class="flex items-center gap-3">
+<div class="text-primary">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1">theater_comedy</span>
+</div>
+<h1 class="theatrical-title text-3xl tracking-widest uppercase text-white">Mitos Escénicos</h1>
+</div>
+<div class="hidden md:block">
+<a class="text-white/60 hover:text-primary transition-colors text-sm font-medium tracking-wide" href="#">¿Ya tienes cuenta? Inicia sesión</a>
+</div>
+</header>
+<main class="flex-1 flex flex-col items-center justify-center py-10">
+<!-- Registration Card -->
+<div class="glass-panel w-full max-w-[560px] p-8 md:p-12 rounded-xl shadow-2xl border-t border-white/5">
+<div class="mb-10 text-center">
+<h2 class="theatrical-title text-4xl mb-3 tracking-wide">Únete al Elenco</h2>
+<p class="text-white/50 font-light text-base">Crea tu perfil artístico y forma parte de nuestra próxima gran tragedia.</p>
+</div>
+<form class="space-y-6">
+<!-- Full Name -->
+<div class="group">
+<label class="block text-xs uppercase tracking-widest text-white/40 mb-2 group-focus-within:text-primary transition-colors">Nombre Completo</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-white/30 text-xl">person</span>
+<input class="w-full bg-white/5 border border-white/10 rounded-lg py-4 pl-12 pr-4 text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/30 transition-all placeholder:text-white/20" placeholder="Tu nombre artístico o legal" type="text"/>
+</div>
+</div>
+<!-- Email -->
+<div class="group">
+<label class="block text-xs uppercase tracking-widest text-white/40 mb-2 group-focus-within:text-primary transition-colors">Correo Electrónico</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-white/30 text-xl">mail</span>
+<input class="w-full bg-white/5 border border-white/10 rounded-lg py-4 pl-12 pr-4 text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/30 transition-all placeholder:text-white/20" placeholder="ejemplo@teatro.com" type="email"/>
+</div>
+</div>
+<!-- Phone Number -->
+<div class="group">
+<label class="block text-xs uppercase tracking-widest text-white/40 mb-2 group-focus-within:text-primary transition-colors">Teléfono</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-white/30 text-xl">call</span>
+<input class="w-full bg-white/5 border border-white/10 rounded-lg py-4 pl-12 pr-4 text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/30 transition-all placeholder:text-white/20" placeholder="+34 600 000 000" type="tel"/>
+</div>
+</div>
+<!-- Password Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="group">
+<label class="block text-xs uppercase tracking-widest text-white/40 mb-2 group-focus-within:text-primary transition-colors">Contraseña</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-white/30 text-xl">lock</span>
+<input class="w-full bg-white/5 border border-white/10 rounded-lg py-4 pl-12 pr-4 text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/30 transition-all placeholder:text-white/20" placeholder="••••••••" type="password"/>
+</div>
+</div>
+<div class="group">
+<label class="block text-xs uppercase tracking-widest text-white/40 mb-2 group-focus-within:text-primary transition-colors">Confirmar</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-white/30 text-xl">shield</span>
+<input class="w-full bg-white/5 border border-white/10 rounded-lg py-4 pl-12 pr-4 text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/30 transition-all placeholder:text-white/20" placeholder="••••••••" type="password"/>
+</div>
+</div>
+</div>
+<!-- Terms & Conditions -->
+<div class="flex items-start gap-3 py-2">
+<div class="flex items-center h-5">
+<input class="w-5 h-5 rounded border-white/20 bg-white/5 text-primary focus:ring-offset-background-dark focus:ring-primary cursor-pointer" id="terms" type="checkbox"/>
+</div>
+<label class="text-sm text-white/50 leading-relaxed cursor-pointer" for="terms">
+                            Acepto los <a class="text-primary hover:underline underline-offset-4" href="#">Términos y Condiciones</a> y la política de privacidad de la compañía.
+                        </label>
+</div>
+<!-- Submit Button -->
+<button class="w-full bg-deep-maroon hover:bg-red-800 text-white theatrical-title text-xl tracking-widest py-5 rounded-lg shadow-[0_0_25px_rgba(149,12,19,0.3)] transition-all transform hover:-translate-y-0.5 active:translate-y-0 active:scale-95 group flex items-center justify-center gap-3" type="submit">
+<span>CREAR CUENTA</span>
+<span class="material-symbols-outlined text-xl group-hover:translate-x-1 transition-transform">arrow_right_alt</span>
+</button>
+</form>
+<div class="mt-8 text-center md:hidden">
+<p class="text-white/40 text-sm italic">¿Ya tienes cuenta? <a class="text-primary font-medium" href="#">Inicia sesión</a></p>
+</div>
+</div>
+<!-- Additional Branding Decor -->
+<div class="mt-12 opacity-30 flex items-center gap-8 text-white/60">
+<div class="h-px w-16 bg-gradient-to-r from-transparent to-white/60"></div>
+<span class="theatrical-title italic tracking-widest text-lg">Mitos &amp; Leyendas del Escenario</span>
+<div class="h-px w-16 bg-gradient-to-l from-transparent to-white/60"></div>
+</div>
+</main>
+<footer class="py-10 text-center border-t border-white/5 mt-10">
+<p class="text-white/30 text-xs tracking-widest uppercase">© 2024 Mitos Escénicos S.L. — Todos los derechos reservados</p>
+</footer>
+</div>
+</body></html>

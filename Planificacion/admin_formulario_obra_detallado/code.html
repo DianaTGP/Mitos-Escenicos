@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Mitos Escénicos | Admin - Add New Play</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Forum&amp;family=Be+Vietnam+Pro:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#E3B04B", // Mustard Gold
+                        "background-light": "#f8f7f5",
+                        "background-dark": "#000000", // Pure Black as requested
+                    },
+                    fontFamily: {
+                        "display": ["Forum", "serif"],
+                        "sans": ["Be Vietnam Pro", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Forum', serif;
+        }
+        .form-input-custom {
+            background-color: #111111;
+            border: 1px solid #333333;
+            color: white;
+            transition: border-color 0.3s ease;
+        }
+        .form-input-custom:focus {
+            border-color: #E3B04B;
+            outline: none;
+            ring: 0;
+        }
+        select.form-input-custom {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23E3B04B' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+            background-position: right 0.5rem center;
+            background-repeat: no-repeat;
+            background-size: 1.5em 1.5em;
+            padding-right: 2.5rem;
+        }
+    </style>
+</head>
+<body class="bg-background-dark text-white min-h-screen">
+<!-- Top Navigation Bar -->
+<header class="border-b border-primary/20 px-6 py-4 flex items-center justify-between sticky top-0 bg-background-dark z-50">
+<div class="flex items-center gap-3">
+<div class="text-primary">
+<span class="material-symbols-outlined text-3xl">theaters</span>
+</div>
+<h1 class="text-xl tracking-widest uppercase font-display text-primary">Mitos Escénicos <span class="text-white/40 mx-2">|</span> <span class="text-white/80">Administration</span></h1>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-white/5 rounded-full transition-colors">
+<span class="material-symbols-outlined text-white/70">notifications</span>
+</button>
+<div class="h-10 w-10 rounded-full border border-primary/30 flex items-center justify-center overflow-hidden bg-primary/10">
+<span class="material-symbols-outlined text-primary">account_circle</span>
+</div>
+</div>
+</header>
+<main class="max-w-4xl mx-auto px-6 py-12">
+<!-- Title Section -->
+<div class="mb-10 text-center">
+<h2 class="text-4xl lg:text-5xl font-display text-primary mb-3">Add New Play</h2>
+<p class="text-white/60 text-lg">Register a new theatrical production to the digital repertoire.</p>
+</div>
+<!-- Form Container -->
+<form class="space-y-8">
+<!-- Grid for Basic Info -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Play Title -->
+<div class="flex flex-col gap-2">
+<label class="text-primary uppercase tracking-wider text-sm font-display">Play Title</label>
+<input class="form-input-custom rounded-lg p-4 text-lg" placeholder="e.g. Oedipus Rex" type="text"/>
+</div>
+<!-- Genre -->
+<div class="flex flex-col gap-2">
+<label class="text-primary uppercase tracking-wider text-sm font-display">Genre</label>
+<select class="form-input-custom rounded-lg p-4 text-lg">
+<option disabled="" selected="" value="">Select genre</option>
+<option value="tragedy">Tragedy</option>
+<option value="comedy">Comedy</option>
+<option value="drama">Drama</option>
+<option value="musical">Musical</option>
+<option value="experimental">Experimental</option>
+</select>
+</div>
+<!-- Director -->
+<div class="flex flex-col gap-2">
+<label class="text-primary uppercase tracking-wider text-sm font-display">Director</label>
+<input class="form-input-custom rounded-lg p-4 text-lg" placeholder="e.g. Sophocles" type="text"/>
+</div>
+<!-- Escritor -->
+<div class="flex flex-col gap-2">
+<label class="text-primary uppercase tracking-wider text-sm font-display">Escritor</label>
+<input class="form-input-custom rounded-lg p-4 text-lg" placeholder="e.g. Aeschylus" type="text"/>
+</div>
+<!-- Release Date -->
+<div class="flex flex-col gap-2 md:col-span-2">
+<label class="text-primary uppercase tracking-wider text-sm font-display">Release Date</label>
+<input class="form-input-custom rounded-lg p-4 text-lg [color-scheme:dark]" type="date"/>
+</div>
+</div>
+<!-- Synopsis -->
+<div class="flex flex-col gap-2">
+<label class="text-primary uppercase tracking-wider text-sm font-display">Synopsis / Description</label>
+<textarea class="form-input-custom rounded-lg p-4 text-lg resize-none" placeholder="Enter the theatrical production details and narrative summary..." rows="5"></textarea>
+</div><div class="flex flex-col gap-4">
+<label class="text-primary uppercase tracking-wider text-sm font-display">Elenco y Personajes</label>
+<div class="space-y-4">
+<!-- Character Row -->
+<div class="flex flex-col md:flex-row gap-4 items-end">
+<div class="flex-1 w-full">
+<label class="text-white/40 uppercase tracking-widest text-[10px] mb-1 block">Nombre del Personaje</label>
+<input class="form-input-custom rounded-lg p-3 text-base w-full" placeholder="e.g. Oedipus" type="text"/>
+</div>
+<div class="flex-1 w-full">
+<label class="text-white/40 uppercase tracking-widest text-[10px] mb-1 block">Actor / Actriz</label>
+<input class="form-input-custom rounded-lg p-3 text-base w-full" placeholder="e.g. John Doe" type="text"/>
+</div>
+<button class="p-3 text-red-500/50 hover:text-red-500 transition-colors" type="button">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+</div>
+<button class="flex items-center justify-center gap-2 py-3 px-6 rounded-lg border border-primary/30 text-primary hover:bg-primary/10 transition-all uppercase tracking-widest text-xs font-display self-start" type="button">
+<span class="material-symbols-outlined text-sm">add</span>
+        Agregar Personaje
+    </button>
+</div>
+<!-- Image Upload Area -->
+<div class="flex flex-col gap-2">
+<label class="text-primary uppercase tracking-wider text-sm font-display">Poster Upload</label>
+<div class="relative group">
+<div class="border-2 border-dashed border-white/20 rounded-xl p-12 text-center flex flex-col items-center justify-center gap-4 hover:border-primary/50 transition-colors cursor-pointer bg-white/5">
+<span class="material-symbols-outlined text-5xl text-primary/60 group-hover:text-primary transition-colors">cloud_upload</span>
+<div>
+<p class="text-xl">Upload Play Poster</p>
+<p class="text-white/40 text-sm mt-1">Recommended size: 1080x1920 (9:16 ratio)</p>
+</div>
+<input class="absolute inset-0 opacity-0 cursor-pointer" type="file"/>
+</div>
+</div>
+</div>
+<!-- Footer Actions -->
+<div class="pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-end gap-4">
+<button class="w-full sm:w-auto px-10 py-4 rounded-lg border border-white/20 text-white hover:bg-white/5 transition-all uppercase tracking-widest text-sm font-display" type="button">
+                    Cancel
+                </button>
+<button class="w-full sm:w-auto px-12 py-4 rounded-lg bg-primary text-black font-bold hover:bg-primary/90 transition-all uppercase tracking-widest text-sm font-display shadow-[0_0_20px_rgba(227,176,75,0.2)]" type="submit">
+                    Save Play
+                </button>
+</div>
+</form>
+<!-- Decorative Element -->
+<div class="mt-20 flex justify-center opacity-20">
+<div class="h-px w-24 bg-primary"></div>
+<div class="mx-4 text-primary">
+<span class="material-symbols-outlined">flare</span>
+</div>
+<div class="h-px w-24 bg-primary"></div>
+</div>
+</main>
+<footer class="py-10 text-center text-white/30 text-sm uppercase tracking-[0.2em] font-display">
+        © 2024 Mitos Escénicos Theater Management
+    </footer>
+</body></html>

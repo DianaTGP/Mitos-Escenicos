@@ -8,33 +8,34 @@ $pdo = mitos_pdo();
 $talleres_presenciales = [];
 $talleres_video        = [];
 try {
-    $stmt = $pdo->query("SELECT * FROM talleres WHERE activo = 1 AND modalidad = 'presencial' ORDER BY created_at DESC");
-    $talleres_presenciales = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    // Presenciales
+    $stmt = $pdo->query("SELECT t.*, (SELECT COUNT(*) FROM inscripciones_talleres WHERE taller_id = t.id AND estado = 'confirmada') as confirmados FROM talleres t WHERE t.activo = 1 AND t.modalidad = 'presencial' ORDER BY t.created_at DESC");
+    if($stmt) {
+        $talleres_presenciales = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 
-    $stmt = $pdo->query("SELECT * FROM talleres WHERE activo = 1 AND modalidad = 'video' ORDER BY created_at DESC");
-    $talleres_video = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    // Video
+    $stmt2 = $pdo->query("SELECT t.*, (SELECT COUNT(*) FROM inscripciones_talleres WHERE taller_id = t.id AND estado = 'confirmada') as confirmados FROM talleres t WHERE t.activo = 1 AND t.modalidad = 'video' ORDER BY t.created_at DESC");
+    if($stmt2) {
+        $talleres_video = $stmt2->fetchAll(PDO::FETCH_ASSOC);
+    }
 } catch (PDOException $e) {
-    // Tabla aún no existe: se mostrarán ejemplos
+    // Si la tabla no existe, simplemente quedarán en arreglo vacío
 }
 
-// Datos de ejemplo cuando la BD está vacía
-$ejemplos_presenciales = [
-    ['titulo'=>'Actuación Integral','instructor'=>'Roberto Castillo','descripcion'=>'Explora las bases del drama clásico y contemporáneo. Un viaje desde la vulnerabilidad hasta la catarsis escénica.',
-     'imagen_url'=>'','precio'=>'1500.00','id'=>0],
-    ['titulo'=>'Voz y Dicción','instructor'=>'Elena Gómez','descripcion'=>'Domina la proyección, resonancia e intención comunicativa para cautivar a cualquier audiencia desde la primera palabra.',
-     'imagen_url'=>'','precio'=>'1200.00','id'=>0],
-    ['titulo'=>'Expresión Corporal','instructor'=>'Marco Ruiz','descripcion'=>'El cuerpo como herramienta narrativa fundamental. Movimiento consciente y creación de personajes desde la fisicalidad.',
-     'imagen_url'=>'','precio'=>'1000.00','id'=>0],
-];
-$ejemplos_video = [
-    ['titulo'=>'Teoría de la Tragedia','instructor'=>'Dra. Sofía Valerio','descripcion'=>'Un análisis profundo desde los griegos hasta el teatro del absurdo.','imagen_url'=>'','precio'=>'500.00','id'=>0],
-    ['titulo'=>'Diseño de Escenografía','instructor'=>'Arq. Luis Méndez','descripcion'=>'Crea mundos visuales impactantes con recursos mínimos y máxima creatividad.','imagen_url'=>'','precio'=>'450.00','id'=>0],
-    ['titulo'=>'Dramaturgia Creativa','instructor'=>'Silvia Pinal','descripcion'=>'Herramientas para escribir tu primera obra de teatro desde la primera página.','imagen_url'=>'','precio'=>'400.00','id'=>0],
-    ['titulo'=>'Producción Teatral','instructor'=>'Jorge Ramos','descripcion'=>'Cómo llevar una idea del papel al escenario: gestión, costos y estrategia.','imagen_url'=>'','precio'=>'550.00','id'=>0],
-];
+$mostrar_presenciales = $talleres_presenciales;
+$mostrar_video        = $talleres_video;
 
-$mostrar_presenciales = !empty($talleres_presenciales) ? $talleres_presenciales : $ejemplos_presenciales;
-$mostrar_video        = !empty($talleres_video)        ? $talleres_video        : $ejemplos_video;
+$estadoTaller = [];
+$userLogged = $_SESSION['usuario_id'] ?? null;
+if ($userLogged) {
+    $stmtSt = $pdo->prepare("SELECT taller_id, estado FROM inscripciones_talleres WHERE usuario_id = ? AND estado != 'cancelada'");
+    $stmtSt->execute([$userLogged]);
+    foreach ($stmtSt->fetchAll(PDO::FETCH_ASSOC) as $rowInfo) {
+        $estadoTaller[$rowInfo['taller_id']] = $rowInfo['estado'];
+    }
+}
+
 
 $pageTitle = 'Talleres Formativos | Mitos Escénicos';
 ?>
@@ -95,25 +96,53 @@ $pageTitle = 'Talleres Formativos | Mitos Escénicos';
               </div>
             <?php endif; ?>
           </div>
-          <div class="taller-body">
-            <h4><?php echo htmlspecialchars($t['titulo']); ?></h4>
-            <?php if (!empty($t['instructor'])): ?>
-              <p class="taller-instructor">Por: <?php echo htmlspecialchars($t['instructor']); ?></p>
-            <?php endif; ?>
-            <p><?php echo htmlspecialchars($t['descripcion'] ?? ''); ?></p>
-            <?php if (!empty($t['precio']) && (float)$t['precio'] > 0): ?>
-              <p style="font-size:1rem; font-weight:800; color:var(--gold); margin:0 0 1rem;">
-                $<?php echo number_format((float)$t['precio'], 2); ?>
-              </p>
-            <?php endif; ?>
-            <?php if ((int)$t['id'] > 0): ?>
-              <a href="<?php echo htmlspecialchars(mitos_url('inscripcion-taller.php?id=' . (int)$t['id'])); ?>"
-                 class="btn-primary" style="width:100%; display:block; text-align:center; padding:0.7rem;">Inscribirse</a>
-            <?php else: ?>
-              <a href="<?php echo htmlspecialchars(mitos_url('login.php')); ?>"
-                 class="btn-primary" style="width:100%; display:block; text-align:center; padding:0.7rem;">Inscribirse</a>
-            <?php endif; ?>
-          </div>
+            <div class="taller-body">
+              <h4><?php echo htmlspecialchars($t['titulo']); ?></h4>
+              <?php if (!empty($t['instructor'])): ?>
+                <p class="taller-instructor">Por: <?php echo htmlspecialchars($t['instructor']); ?></p>
+              <?php endif; ?>
+              <p><?php echo htmlspecialchars($t['descripcion'] ?? ''); ?></p>
+              
+              <?php 
+                $cuposMax = (int)($t['cupo_maximo'] ?? 0);
+                $confirmados = (int)($t['confirmados'] ?? 0);
+                $agotado = false;
+                if ($cuposMax > 0):
+                    $disponibles = max(0, $cuposMax - $confirmados);
+                    $agotado = ($disponibles === 0);
+              ?>
+                <p style="font-size:0.8rem; color:<?php echo $agotado ? '#ef4444' : '#aaa'; ?>; margin:0 0 0.5rem; font-weight:600;">
+                    <?php echo $agotado ? 'Taller Agotado' : "Cupos disponibles: $disponibles / $cuposMax"; ?>
+                </p>
+              <?php endif; ?>
+
+              <?php if (!empty($t['precio']) && (float)$t['precio'] > 0): ?>
+                <p style="font-size:1rem; font-weight:800; color:var(--gold); margin:0 0 1rem;">
+                  $<?php echo number_format((float)$t['precio'], 2); ?>
+                </p>
+              <?php endif; ?>
+              <?php 
+                   $tId = (int)$t['id'];
+                   $estadoEstudiante = $estadoTaller[$tId] ?? null;
+                   
+                   if ($tId > 0 && $estadoEstudiante === 'confirmada'): ?>
+                     <a href="<?php echo htmlspecialchars(mitos_url('mi_taller.php?id=' . $tId)); ?>"
+                        class="btn-gold" style="width:100%; display:block; text-align:center; padding:0.7rem; color:#000;">Entrar a Mi Taller</a>
+                   <?php elseif ($tId > 0 && $estadoEstudiante === 'aprobado_para_pago'): ?>
+                     <a href="<?php echo htmlspecialchars(mitos_url('inscripcion-taller.php?id=' . $tId)); ?>"
+                        class="btn-primary" style="width:100%; display:block; text-align:center; padding:0.7rem; background:var(--gold); color:#000; font-weight:800;">Pagar Ahora</a>
+                   <?php elseif ($tId > 0 && $estadoEstudiante === 'pendiente'): ?>
+                     <button disabled class="btn-secondary" style="width:100%; display:block; text-align:center; padding:0.7rem; opacity:0.6; cursor:not-allowed;">Solicitud Pendiente</button>
+                   <?php elseif ($agotado): ?>
+                     <button disabled class="btn-secondary" style="width:100%; display:block; text-align:center; padding:0.7rem; opacity:0.5; cursor:not-allowed; color:#ef4444; border-color:#ef4444;">Sin Cupos</button>
+                   <?php elseif ($tId > 0): ?>
+                     <a href="<?php echo htmlspecialchars(mitos_url('inscripcion-taller.php?id=' . $tId)); ?>"
+                        class="btn-primary" style="width:100%; display:block; text-align:center; padding:0.7rem;">Inscribirse</a>
+                   <?php else: ?>
+                     <a href="<?php echo htmlspecialchars(mitos_url('login.php')); ?>"
+                        class="btn-primary" style="width:100%; display:block; text-align:center; padding:0.7rem;">Inscribirse</a>
+                   <?php endif; ?>
+            </div>
         </div>
       <?php endforeach; ?>
     </div>
@@ -153,16 +182,44 @@ $pageTitle = 'Talleres Formativos | Mitos Escénicos';
               <p class="taller-instructor" style="font-size:0.75rem;"><?php echo htmlspecialchars($t['instructor']); ?></p>
             <?php endif; ?>
             <p style="font-size:0.8rem; -webkit-line-clamp:3;"><?php echo htmlspecialchars($t['descripcion'] ?? ''); ?></p>
+            
+            <?php 
+              $cuposMax = (int)($t['cupo_maximo'] ?? 0);
+              $confirmados = (int)($t['confirmados'] ?? 0);
+              $agotado = false;
+              if ($cuposMax > 0):
+                  $disponibles = max(0, $cuposMax - $confirmados);
+                  $agotado = ($disponibles === 0);
+            ?>
+              <p style="font-size:0.75rem; color:<?php echo $agotado ? '#ef4444' : '#aaa'; ?>; margin:0 0 0.5rem; font-weight:600;">
+                  <?php echo $agotado ? 'Taller Agotado' : "Cupos disponibles: $disponibles / $cuposMax"; ?>
+              </p>
+            <?php endif; ?>
+
             <?php if (!empty($t['precio']) && (float)$t['precio'] > 0): ?>
               <p style="font-size:0.95rem; font-weight:800; color:var(--gold); margin:0 0 1rem;">$<?php echo number_format((float)$t['precio'], 2); ?></p>
             <?php endif; ?>
-            <?php if ((int)$t['id'] > 0): ?>
-              <a href="<?php echo htmlspecialchars(mitos_url('inscripcion-taller.php?id=' . (int)$t['id'])); ?>"
-                 class="btn-primary btn-sm" style="width:100%; display:block; text-align:center;">Inscribirse</a>
-            <?php else: ?>
-              <a href="<?php echo htmlspecialchars(mitos_url('login.php')); ?>"
-                 class="btn-primary btn-sm" style="width:100%; display:block; text-align:center;">Inscribirse</a>
-            <?php endif; ?>
+            <?php 
+                 $tId = (int)$t['id'];
+                 $estadoEstudiante = $estadoTaller[$tId] ?? null;
+                 
+                 if ($tId > 0 && $estadoEstudiante === 'confirmada'): ?>
+                   <a href="<?php echo htmlspecialchars(mitos_url('mi_taller.php?id=' . $tId)); ?>"
+                      class="btn-gold btn-sm" style="width:100%; display:block; text-align:center; color:#000;">Entrar a Mi Taller</a>
+                 <?php elseif ($tId > 0 && $estadoEstudiante === 'aprobado_para_pago'): ?>
+                   <a href="<?php echo htmlspecialchars(mitos_url('inscripcion-taller.php?id=' . $tId)); ?>"
+                      class="btn-primary btn-sm" style="width:100%; display:block; text-align:center; background:var(--gold); color:#000; font-weight:800;">Pagar Ahora</a>
+                 <?php elseif ($tId > 0 && $estadoEstudiante === 'pendiente'): ?>
+                   <button disabled class="btn-secondary btn-sm" style="width:100%; display:block; text-align:center; opacity:0.6; cursor:not-allowed;">Pendiente</button>
+                 <?php elseif ($agotado): ?>
+                   <button disabled class="btn-secondary btn-sm" style="width:100%; display:block; text-align:center; opacity:0.5; cursor:not-allowed; color:#ef4444; border-color:#ef4444;">Sin Cupos</button>
+                 <?php elseif ($tId > 0): ?>
+                   <a href="<?php echo htmlspecialchars(mitos_url('inscripcion-taller.php?id=' . $tId)); ?>"
+                      class="btn-primary btn-sm" style="width:100%; display:block; text-align:center;">Inscribirse</a>
+                 <?php else: ?>
+                   <a href="<?php echo htmlspecialchars(mitos_url('login.php')); ?>"
+                      class="btn-primary btn-sm" style="width:100%; display:block; text-align:center;">Inscribirse</a>
+                 <?php endif; ?>
           </div>
         </div>
       <?php endforeach; ?>

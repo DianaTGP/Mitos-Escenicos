@@ -382,22 +382,47 @@ function previewPortada(input) {
 function previewFiles(input) {
   const preview = document.getElementById('uploadPreview');
   preview.innerHTML = '';
+  
+  const MAX_IMG = 8 * 1024 * 1024; // 8 MB
+  const MAX_VID = 50 * 1024 * 1024; // 50 MB
+  
+  let validFiles = true;
+
   Array.from(input.files).forEach(file => {
-    const url = URL.createObjectURL(file);
-    let el;
-    if (file.type.startsWith('video/')) {
-      el = document.createElement('video');
-      el.src = url;
-      el.muted = true;
-      el.preload = 'metadata';
-    } else {
-      el = document.createElement('img');
-      el.src = url;
-      el.alt = file.name;
+    let isVideo = file.type.startsWith('video/');
+    
+    // Validación de peso
+    if (isVideo && file.size > MAX_VID) {
+      alert('⚠️ El video "' + file.name + '" supera el límite de 50 MB.');
+      validFiles = false;
+    } else if (!isVideo && file.size > MAX_IMG) {
+      alert('⚠️ La imagen "' + file.name + '" supera el límite de 8 MB.');
+      validFiles = false;
     }
-    el.className = 'upload-preview-item';
-    preview.appendChild(el);
+
+    if (validFiles) {
+      const url = URL.createObjectURL(file);
+      let el;
+      if (isVideo) {
+        el = document.createElement('video');
+        el.src = url;
+        el.muted = true;
+        el.preload = 'metadata';
+      } else {
+        el = document.createElement('img');
+        el.src = url;
+        el.alt = file.name;
+      }
+      el.className = 'upload-preview-item';
+      preview.appendChild(el);
+    }
   });
+
+  // Si algún archivo es inválido, limpiamos la selección para obligar a elegir de nuevo
+  if (!validFiles) {
+    input.value = '';
+    preview.innerHTML = '<p style="color:var(--gold); font-size:0.85rem;">Por favor, elige solo videos menores a 50MB y/o imágenes menores a 8MB.</p>';
+  }
 }
 </script>
 </body>

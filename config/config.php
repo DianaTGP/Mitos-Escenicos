@@ -4,7 +4,8 @@
  * No subir credenciales reales a repositorio; usar .env o variables de entorno en producción.
  */
 
-declare(strict_types=1);
+declare(strict_types = 1)
+;
 
 // Evitar acceso directo
 if (!defined('MITOS_APP')) {
@@ -15,14 +16,14 @@ if (!defined('MITOS_APP')) {
 $GLOBALS['MITOS_ROOT'] = dirname(__DIR__);
 
 // Base URL (ajustar según instalación; en XAMPP si la app está en htdocs/mitos usar '/mitos')
-$GLOBALS['MITOS_BASE_URL'] = getenv('MITOS_BASE_URL') ?: '/mitos';
+$GLOBALS['MITOS_BASE_URL'] = getenv('MITOS_BASE_URL') ?: '';
 
-// Base de datos MySQL (Cloud SQL)
-define('DB_HOST', getenv('DB_HOST') ?: 'AQUI_LA_IP_PUBLICA_DE_CLOUD_SQL'); // IP Pública de la instancia
+// Base de datos SQL Server Express
+define('DB_HOST', getenv('DB_HOST') ?: '.\SQLEXPRESS'); // Servidor local
 define('DB_NAME', getenv('DB_NAME') ?: 'mitos_escenicos');
-define('DB_USER', getenv('DB_USER') ?: 'AQUI_TU_USUARIO'); // Usualmente 'root' o el usuario que creaste
-define('DB_PASS', getenv('DB_PASS') ?: 'AQUI_TU_CONTRASEÑA');
-define('DB_CHARSET', 'utf8mb4');
+define('DB_USER', getenv('DB_USER') ?: ''); // Si se usa Auth de Windows se puede dejar vacío
+define('DB_PASS', getenv('DB_PASS') ?: '');
+define('DB_CHARSET', 'UTF-8');
 
 // Openpay (México) - usar modo sandbox en desarrollo
 define('OPENPAY_MERCHANT_ID', getenv('OPENPAY_MERCHANT_ID') ?: '');
@@ -35,13 +36,25 @@ function mitos_pdo(): PDO
 {
     static $pdo = null;
     if ($pdo === null) {
-        $dsn = 'mysql:host=' . DB_HOST . ';dbname=' . DB_NAME . ';charset=' . DB_CHARSET;
+        // Conexión para SQL Server usando pdo_sqlsrv
+        // CharacterSet en UTF-8 es importante para T-SQL
+        $dsn = 'sqlsrv:Server=' . DB_HOST . ';Database=' . DB_NAME;
+        
         $opts = [
-            PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
             PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-            PDO::ATTR_EMULATE_PREPARES    => false,
         ];
-        $pdo = new PDO($dsn, DB_USER, DB_PASS, $opts);
+        
+        try {
+            // Intentar conectar (si no hay pass, usará Windows Auth en SQLEXPRESS)
+            if (empty(DB_USER)) {
+                $pdo = new PDO($dsn, null, null, $opts);
+            } else {
+                $pdo = new PDO($dsn, DB_USER, DB_PASS, $opts);
+            }
+        } catch (PDOException $e) {
+            die("Error de conexión a la base de datos: " . $e->getMessage());
+        }
     }
     return $pdo;
 }

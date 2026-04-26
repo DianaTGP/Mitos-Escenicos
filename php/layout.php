@@ -6,6 +6,16 @@
 if (!function_exists('mitos_header')) {
     function mitos_header(string $pageTitle = 'Mitos Escénicos', bool $showCart = true): void {
         $user = mitos_usuario_actual();
+        $foto_perfil = null;
+        if ($user) {
+            try {
+                $pdo = mitos_pdo();
+                $stmt = $pdo->prepare("SELECT foto_perfil FROM usuarios WHERE id = ?");
+                $stmt->execute([$user['id']]);
+                $foto_perfil = $stmt->fetchColumn();
+            } catch (Exception $e) {}
+        }
+
         $currentPath = basename($_SERVER['PHP_SELF'] ?? '');
         $parentPath  = basename(dirname($_SERVER['PHP_SELF'] ?? ''));
 
@@ -19,9 +29,16 @@ if (!function_exists('mitos_header')) {
         ?>
 <header class="site-header">
   <div class="container">
-    <a href="<?php echo htmlspecialchars(mitos_url('index.php')); ?>" class="brand" title="Inicio">
-      <span class="material-symbols-outlined">theater_comedy</span>
-      <h1>Mitos Escénicos</h1>
+    <a href="<?php echo htmlspecialchars(mitos_url('index.php')); ?>" class="brand" title="Inicio" style="display:flex; align-items:center; gap:0.25rem; text-decoration:none;">
+      <?php if (file_exists(__DIR__ . '/../media/logos/logo-isotipo.png')): ?>
+          <img src="<?php echo htmlspecialchars(mitos_url('media/logos/logo-isotipo.png')); ?>" alt="Mitos Escénicos" style="height:52px; width:auto; margin-right:0.1rem;">
+          <span style="font-size:1rem; font-weight:600; color:#fff; letter-spacing:0.01em; white-space:nowrap;">Mitos Escénicos</span>
+      <?php elseif (file_exists(__DIR__ . '/../media/logos/logo-horizontal.png')): ?>
+          <img src="<?php echo htmlspecialchars(mitos_url('media/logos/logo-horizontal.png')); ?>" alt="Mitos Escénicos" style="max-height: 45px; width:auto; border-radius:4px; padding:2px; background:rgba(255,255,255,0.9);">
+      <?php else: ?>
+          <span class="material-symbols-outlined">theater_comedy</span>
+          <h1>Mitos Escénicos</h1>
+      <?php endif; ?>
     </a>
 
     <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">
@@ -39,7 +56,16 @@ if (!function_exists('mitos_header')) {
          <?php if ($currentPath === 'tienda.php') echo 'class="active"'; ?>>Tienda</a>
       <?php if ($user): ?>
         <a href="<?php echo htmlspecialchars(mitos_url('perfil.php')); ?>"
-           <?php if ($currentPath === 'perfil.php') echo 'class="active"'; ?>>Mi perfil</a>
+           <?php if ($currentPath === 'perfil.php') echo 'class="active"'; ?> style="display:flex; align-items:center; gap:0.4rem;">
+           <?php if ($foto_perfil): ?>
+               <img src="<?php echo htmlspecialchars(mitos_url($foto_perfil)); ?>" alt="Avatar" style="width:28px; height:28px; border-radius:50%; object-fit:cover; border:2px solid var(--gold); margin-top:-2px; background:rgba(255,255,255,0.1);">
+           <?php else: ?>
+               <div style="width:28px; height:28px; border-radius:50%; border:1px solid var(--border-dark); background:rgba(255,255,255,0.05); display:flex; align-items:center; justify-content:center; margin-top:-2px;">
+                   <span class="material-symbols-outlined" style="font-size:1rem; color:var(--text-muted);">person</span>
+               </div>
+           <?php endif; ?>
+           Mi perfil
+        </a>
         <?php if ($user['rol'] === 'admin'): ?>
           <a href="<?php echo htmlspecialchars(mitos_url('admin/index.php')); ?>"
              class="nav-admin <?php if ($parentPath === 'admin') echo 'active'; ?>">Administrador</a>
@@ -92,10 +118,21 @@ if (!function_exists('mitos_footer')) {
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <div class="brand">
-          <span class="material-symbols-outlined">theater_comedy</span>
-          <h2>Mitos Escénicos</h2>
-        </div>
+        <?php if (file_exists(__DIR__ . '/../media/logos/logo-isotipo.png')): ?>
+          <div style="display:flex; align-items:center; gap:0.25rem; margin-bottom:1rem;">
+            <img src="<?php echo htmlspecialchars(mitos_url('media/logos/logo-isotipo.png')); ?>" alt="Mitos Escénicos" style="height:52px; width:auto;">
+            <span style="font-size:1rem; font-weight:600; color:#fff; letter-spacing:0.01em; white-space:nowrap;">Mitos Escénicos</span>
+          </div>
+        <?php elseif (file_exists(__DIR__ . '/../media/logos/logo-horizontal.png')): ?>
+          <div class="brand" style="margin-bottom:1rem; display:inline-flex; align-items:center; background:rgba(255,255,255,0.9); padding:0.5rem; border-radius:0.5rem;">
+            <img src="<?php echo htmlspecialchars(mitos_url('media/logos/logo-horizontal.png')); ?>" alt="Mitos Escénicos" style="max-height: 50px; width:auto;">
+          </div>
+        <?php else: ?>
+          <div class="brand" style="margin-bottom:1rem;">
+            <span class="material-symbols-outlined">theater_comedy</span>
+            <h2>Mitos Escénicos</h2>
+          </div>
+        <?php endif; ?>
         <p>Dedicados a crear experiencias teatrales únicas que transforman al espectador. Arte, pasión y cultura escénica desde el corazón de la ciudad.</p>
       </div>
       <div class="footer-col">
@@ -146,12 +183,15 @@ if (!function_exists('mitos_admin_sidebar')) {
     function mitos_admin_sidebar(string $current = 'dashboard'): void {
         $user = mitos_usuario_actual();
         $links = [
-            'dashboard'  => ['url' => 'admin/index.php',      'icon' => 'dashboard',    'label' => 'Dashboard'],
-            'obras'      => ['url' => 'admin/obras.php',       'icon' => 'theaters',     'label' => 'Obras'],
-            'funciones'  => ['url' => 'admin/funciones.php',   'icon' => 'event',        'label' => 'Funciones'],
-            'lugares'    => ['url' => 'admin/lugares.php',     'icon' => 'place',        'label' => 'Lugares'],
-            'artistas'   => ['url' => 'admin/artistas.php',    'icon' => 'group',        'label' => 'Artistas'],
-            'mercaderia' => ['url' => 'admin/mercaderia.php',  'icon' => 'inventory_2',  'label' => 'Mercancía'],
+            'dashboard'    => ['url' => 'admin/index.php',        'icon' => 'dashboard',    'label' => 'Dashboard'],
+            'obras'        => ['url' => 'admin/obras.php',         'icon' => 'theaters',     'label' => 'Obras'],
+            'funciones'    => ['url' => 'admin/funciones.php',     'icon' => 'event',        'label' => 'Funciones'],
+            'lugares'      => ['url' => 'admin/lugares.php',       'icon' => 'place',        'label' => 'Lugares'],
+            'artistas'     => ['url' => 'admin/artistas.php',      'icon' => 'group',        'label' => 'Artistas'],
+            'talleres'     => ['url' => 'admin/talleres.php',      'icon' => 'school',       'label' => 'Talleres'],
+            'mercaderia'   => ['url' => 'admin/mercaderia.php',    'icon' => 'inventory_2',  'label' => 'Mercancía'],
+            'reportes'     => ['url' => 'admin/reportes.php',      'icon' => 'bar_chart',    'label' => 'Reportes'],
+            'transacciones'=> ['url' => 'admin/transacciones.php', 'icon' => 'receipt_long', 'label' => 'Transacciones'],
         ];
 
         ?>

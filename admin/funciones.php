@@ -24,6 +24,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $obra_id     = (int)($_POST['obra_id'] ?? 0);
         $lugar_id    = (int)($_POST['lugar_id'] ?? 0);
         $fecha_hora  = trim((string)($_POST['fecha_hora'] ?? ''));
+        if ($fecha_hora !== '') {
+            $fecha_hora = date('Y-m-d H:i:s', strtotime($fecha_hora));
+        }
         $precio_base = (float)($_POST['precio_base'] ?? 0);
         $aforo       = (int)($_POST['aforo'] ?? 0);
 

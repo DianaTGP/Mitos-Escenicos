@@ -54,7 +54,11 @@ $pageTitle = 'Iniciar sesión | Mitos Escénicos';
     <div class="surface-card" style="text-align:center; padding:2.5rem;">
 
       <div style="margin-bottom:2rem;">
-        <span class="material-symbols-outlined" style="font-size:2.5rem; color:var(--primary); display:block; margin-bottom:0.75rem;">theater_comedy</span>
+        <?php if (file_exists(__DIR__ . '/media/logos/logo-vertical.png')): ?>
+            <img src="<?php echo htmlspecialchars(mitos_url('media/logos/logo-vertical.png')); ?>" alt="Mitos Escénicos" style="max-height:80px; width:auto; margin-bottom:1rem;">
+        <?php else: ?>
+            <span class="material-symbols-outlined" style="font-size:2.5rem; color:var(--primary); display:block; margin-bottom:0.75rem;">theater_comedy</span>
+        <?php endif; ?>
         <h1 style="font-family:var(--font-theatrical); font-size:2rem; color:#fff; margin:0 0 0.4rem;">Bienvenido</h1>
         <p style="color:var(--text-muted); font-size:0.9rem;">Ingresa a la magia del teatro</p>
       </div>

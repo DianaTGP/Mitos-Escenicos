@@ -4,9 +4,9 @@ require_once __DIR__ . '/php/layout.php';
 
 $pdo = mitos_pdo();
 $obras = $pdo->query(
-    'SELECT id, titulo, descripcion, imagen_url, duracion_min, temporada, venta_boletos_habilitada
+    'SELECT TOP 6 id, titulo, descripcion, imagen_url, duracion_min, temporada, venta_boletos_habilitada
      FROM obras
-     ORDER BY created_at DESC LIMIT 6'
+     ORDER BY created_at DESC'
 )->fetchAll(PDO::FETCH_ASSOC);
 
 $pageTitle = 'Mitos Escénicos | Teatro';
@@ -32,7 +32,10 @@ $pageTitle = 'Mitos Escénicos | Teatro';
     <div class="container" style="padding:0;">
       <div class="hero-section">
         <div class="hero-content">
-          <span class="hero-eyebrow">Temporada en curso</span>
+          <span class="hero-eyebrow">Compañía Teatral</span>
+          <?php if (file_exists(__DIR__ . '/media/logos/logo-redyellow.png')): ?>
+              <img src="<?php echo htmlspecialchars(mitos_url('media/logos/logo-redyellow.png')); ?>" alt="Mitos Escénicos" style="max-height:100px; width:auto; margin-bottom:1.5rem; filter:drop-shadow(0 4px 6px rgba(0,0,0,0.5));">
+          <?php endif; ?>
           <h1>Vive la magia<br>del teatro</h1>
           <p>Disfruta de nuestras obras en vivo. Boletos, talleres formativos y mercancía oficial de Mitos Escénicos.</p>
           <div class="hero-actions">

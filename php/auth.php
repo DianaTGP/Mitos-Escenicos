@@ -91,7 +91,7 @@ function mitos_requiere_admin(): void
 function mitos_login(string $email, string $password): bool
 {
     $pdo = mitos_pdo();
-    $stmt = $pdo->prepare('SELECT id, email, nombre, password_hash, rol FROM usuarios WHERE email = ? AND activo = 1 LIMIT 1');
+    $stmt = $pdo->prepare('SELECT TOP 1 id, email, nombre, password_hash, rol FROM usuarios WHERE email = ? AND activo = 1');
     $stmt->execute([trim($email)]);
     $row = $stmt->fetch();
     if (!$row || !password_verify($password, $row['password_hash'])) {

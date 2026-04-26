@@ -16,7 +16,7 @@ $stmt = $pdo->prepare('
   SELECT f.id, f.fecha_hora, f.precio_base, f.aforo, l.nombre AS lugar_nombre, l.direccion AS lugar_direccion
   FROM funciones f
   JOIN lugares l ON l.id = f.lugar_id
-  WHERE f.obra_id = ? AND f.fecha_hora > NOW()
+  WHERE f.obra_id = ? AND f.fecha_hora > GETDATE()
   ORDER BY f.fecha_hora ASC
 ');
 $stmt->execute([$id]);
@@ -28,7 +28,7 @@ $galeria = $stmtMedia->fetchAll(PDO::FETCH_ASSOC);
 
 // Obtener el elenco (artistas participantes de las funciones de esta obra)
 $stmtElenco = $pdo->prepare('
-  SELECT DISTINCT a.id, a.nombre, a.rol, a.foto_url, fa.rol_en_funcion, fa.personaje
+  SELECT DISTINCT a.id, a.nombre, a.rol, a.foto_url, fa.rol_en_funcion, fa.personaje, a.orden
   FROM artistas a
   JOIN funcion_artistas fa ON a.id = fa.artista_id
   JOIN funciones f ON f.id = fa.funcion_id

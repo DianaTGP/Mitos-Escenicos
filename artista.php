@@ -14,7 +14,7 @@ if (!$artista) { header('Location: ' . mitos_url('sobre-nosotros.php')); exit; }
 
 // Obtener las obras en las que participa (como actor o director)
 $stmtObras = $pdo->prepare('
-    SELECT DISTINCT o.id, o.titulo, o.imagen_url, o.descripcion 
+    SELECT DISTINCT o.id, o.titulo, o.imagen_url, o.descripcion, o.created_at 
     FROM obras o
     JOIN funciones f ON o.id = f.obra_id
     JOIN funcion_artistas fa ON f.id = fa.funcion_id

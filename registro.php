@@ -59,7 +59,11 @@ $pageTitle = 'Registro | Mitos Escénicos';
   <div style="position:relative; z-index:1; width:100%; max-width:460px;">
     <div class="surface-card" style="padding:2.5rem;">
       <div style="text-align:center; margin-bottom:2rem;">
-        <span class="material-symbols-outlined" style="font-size:2.5rem; color:var(--primary); display:block; margin-bottom:0.75rem;">person_add</span>
+        <?php if (file_exists(__DIR__ . '/media/logos/logo-vertical.png')): ?>
+            <img src="<?php echo htmlspecialchars(mitos_url('media/logos/logo-vertical.png')); ?>" alt="Mitos Escénicos" style="max-height:80px; width:auto; margin-bottom:1rem;">
+        <?php else: ?>
+            <span class="material-symbols-outlined" style="font-size:2.5rem; color:var(--primary); display:block; margin-bottom:0.75rem;">person_add</span>
+        <?php endif; ?>
         <h1 style="font-family:var(--font-theatrical); font-size:2rem; color:#fff; margin:0 0 0.4rem;">Únete al elenco</h1>
         <p style="color:var(--text-muted); font-size:0.9rem;">Crea tu cuenta para comprar boletos y mercancía</p>
       </div>

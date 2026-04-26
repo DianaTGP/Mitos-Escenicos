@@ -1,0 +1,39 @@
+runtime: php82
+entrypoint: serve router.php
+
+env_variables:
+  # Base URL debe estar vacía para el entorno de producción en App Engine
+  MITOS_BASE_URL: ""
+  
+  # IMPORTANTE: Para conectar App Engine con Cloud SQL, se recomienda usar el Unix Socket.
+  # Formato: /cloudsql/mitos-escenicos:us-central1:mitos-escenicos-bd
+  DB_SOCKET: "/cloudsql/mitos-escenicos:us-central1:mitos-escenicos-bd"
+  
+  # Si prefieres usar IP pública en App Engine (menos seguro y más lento internamente), usa DB_HOST
+  DB_HOST: ""
+  
+  DB_NAME: "mitos_escenicos"
+  DB_USER: "Diana"
+  DB_PASS: "AmanitaMuscaria"
+  
+  # Credenciales de Openpay
+  OPENPAY_MERCHANT_ID: ""
+  OPENPAY_PRIVATE_KEY: ""
+  OPENPAY_PUBLIC_KEY: ""
+  OPENPAY_SANDBOX: "true"
+
+handlers:
+# Servir archivos estáticos directamente (mejora el rendimiento)
+- url: /css
+  static_dir: css
+
+- url: /js
+  static_dir: js
+
+# Servir imágenes que se suben inicialmente con el proyecto (solo lectura en App Engine)
+- url: /uploads
+  static_dir: uploads
+
+# Todas las demás rutas ejecutadas por PHP
+- url: /.*
+  script: auto

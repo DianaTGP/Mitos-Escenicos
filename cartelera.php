@@ -8,7 +8,7 @@ $filtro_temporada = isset($_GET['temporada']) && $_GET['temporada'] !== '' ? tri
 $filtro_obra_id = isset($_GET['obra_id']) && $_GET['obra_id'] !== '' && $_GET['obra_id'] !== 'todas' ? (int) $_GET['obra_id'] : null;
 $filtro_estado = isset($_GET['estado']) && in_array($_GET['estado'], ['todas', 'por_estrenar', 'estrenadas'], true) ? $_GET['estado'] : 'todas';
 
-$temporadas = $pdo->query('SELECT DISTINCT temporada FROM obras WHERE temporada IS NOT NULL AND temporada != "" ORDER BY temporada')->fetchAll(PDO::FETCH_COLUMN);
+$temporadas = $pdo->query("SELECT DISTINCT temporada FROM obras WHERE temporada IS NOT NULL AND temporada != '' ORDER BY temporada")->fetchAll(PDO::FETCH_COLUMN);
 $lista_obras = $pdo->query('SELECT id, titulo FROM obras ORDER BY titulo')->fetchAll(PDO::FETCH_ASSOC);
 
 $sql = 'SELECT o.id, o.titulo, o.descripcion, o.imagen_url, o.duracion_min, o.venta_boletos_habilitada
@@ -17,10 +17,10 @@ $params = [];
 if ($filtro_temporada !== null) { $sql .= ' AND o.temporada = ?'; $params[] = $filtro_temporada; }
 if ($filtro_obra_id !== null)   { $sql .= ' AND o.id = ?';        $params[] = $filtro_obra_id; }
 if ($filtro_estado === 'por_estrenar') {
-    $sql .= ' AND EXISTS (SELECT 1 FROM funciones f WHERE f.obra_id = o.id AND f.fecha_hora > NOW())';
+    $sql .= ' AND EXISTS (SELECT 1 FROM funciones f WHERE f.obra_id = o.id AND f.fecha_hora > GETDATE())';
 } elseif ($filtro_estado === 'estrenadas') {
-    $sql .= ' AND NOT EXISTS (SELECT 1 FROM funciones f WHERE f.obra_id = o.id AND f.fecha_hora > NOW())
-              AND EXISTS (SELECT 1 FROM funciones f WHERE f.obra_id = o.id AND f.fecha_hora <= NOW())';
+    $sql .= ' AND NOT EXISTS (SELECT 1 FROM funciones f WHERE f.obra_id = o.id AND f.fecha_hora > GETDATE())
+              AND EXISTS (SELECT 1 FROM funciones f WHERE f.obra_id = o.id AND f.fecha_hora <= GETDATE())';
 }
 $sql .= ' ORDER BY o.created_at DESC';
 $stmt = $pdo->prepare($sql);

@@ -13,7 +13,7 @@ $rolesLabel = [
 
 try {
     $pdo = mitos_pdo();
-    $artistas = $pdo->query('SELECT nombre, rol, especialidad, foto_url FROM artistas WHERE activo = 1 ORDER BY orden, nombre')->fetchAll(PDO::FETCH_ASSOC);
+    $artistas = $pdo->query('SELECT id, nombre, rol, especialidad, foto_url FROM artistas WHERE activo = 1 ORDER BY orden, nombre')->fetchAll(PDO::FETCH_ASSOC);
 } catch (Exception $e) {
     $artistas = [];
 }

@@ -104,18 +104,22 @@ try {
     $stmt->execute([$user['id'], $total, 'pagado', $tipoOrden]);
     $ordenId = (int) $pdo->lastInsertId();
 
-    $stmtItem = $pdo->prepare('INSERT INTO orden_items (orden_id, tipo_item, funcion_id, mercancia_id, cantidad, precio_unitario, detalles) VALUES (?, ?, ?, ?, ?, ?, ?)');
+    $stmtItem = $pdo->prepare('INSERT INTO orden_items (orden_id, tipo_item, funcion_id, mercancia_id, taller_id, cantidad, precio_unitario, detalles) VALUES (?, ?, ?, ?, ?, ?, ?, ?)');
     foreach ($carrito as $item) {
         $tipo = $item['tipo'] ?? '';
         $funcionId = ($tipo === 'boleto' && isset($item['funcion_id'])) ? (int) $item['funcion_id'] : null;
         $mercanciaId = ($tipo === 'mercancia' && isset($item['mercancia_id'])) ? (int) $item['mercancia_id'] : null;
+        $tallerId = ($tipo === 'taller' && isset($item['taller_id'])) ? (int) $item['taller_id'] : null;
         $cantidad = (int) ($item['cantidad'] ?? 1);
         $precio = (float) ($item['precio_unitario'] ?? 0);
         $detalles = json_encode(['nombre' => $item['nombre'] ?? '']);
-        $stmtItem->execute([$ordenId, $tipo, $funcionId, $mercanciaId, $cantidad, $precio, $detalles]);
+        $stmtItem->execute([$ordenId, $tipo, $funcionId, $mercanciaId, $tallerId, $cantidad, $precio, $detalles]);
 
         if ($tipo === 'mercancia' && $mercanciaId) {
             $pdo->prepare('UPDATE mercaderia SET stock = stock - ? WHERE id = ?')->execute([$cantidad, $mercanciaId]);
+        }
+        if ($tipo === 'taller' && $tallerId) {
+            $pdo->prepare("UPDATE inscripciones_talleres SET estado = 'confirmada', updated_at = GETDATE() WHERE taller_id = ? AND usuario_id = ?")->execute([$tallerId, $user['id']]);
         }
     }
 
@@ -123,7 +127,7 @@ try {
     $stmt->execute([$ordenId, $total, 'openpay', $openpayChargeId, $openpayOrderId, 'completado']);
 
     if ($guardarTarjeta && $tokenId !== '' && OPENPAY_MERCHANT_ID && OPENPAY_PRIVATE_KEY) {
-        $stmt = $pdo->prepare('SELECT openpay_customer_id FROM tarjetas_guardadas WHERE usuario_id = ? LIMIT 1');
+        $stmt = $pdo->prepare('SELECT TOP 1 openpay_customer_id FROM tarjetas_guardadas WHERE usuario_id = ?');
         $stmt->execute([$user['id']]);
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
         $customerId = $row['openpay_customer_id'] ?? null;

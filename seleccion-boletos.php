@@ -14,7 +14,7 @@ $stmt = $pdo->prepare('
   FROM funciones f
   JOIN obras o ON o.id = f.obra_id
   JOIN lugares l ON l.id = f.lugar_id
-  WHERE f.id = ? AND f.fecha_hora > NOW()
+  WHERE f.id = ? AND f.fecha_hora > GETDATE()
 ');
 $stmt->execute([$funcion_id]);
 $funcion = $stmt->fetch(PDO::FETCH_ASSOC);

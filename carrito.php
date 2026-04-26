@@ -38,7 +38,7 @@ $pageTitle = 'Carrito | Mitos Escénicos';
     .cart-item .thumb { width:120px; height:120px; border-radius:0.5rem; object-fit:cover; flex-shrink:0; }
     .cart-item .placeholder-thumb { width:120px; height:120px; border-radius:0.5rem; background:var(--surface-dark); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
     .cart-item .qty-control { display:flex; align-items:center; gap:0.5rem; }
-    .cart-item .qty-control input { width:3rem; text-align:center; }
+    .cart-item .qty-control input { width:3rem; text-align:center; background:var(--surface-dark); color:#fff; border:1px solid var(--border-dark); border-radius:0.25rem; height:2rem; }
   </style>
 </head>
 <body>
@@ -153,7 +153,7 @@ $pageTitle = 'Carrito | Mitos Escénicos';
     btn.addEventListener('click', function() {
       var idx = this.getAttribute('data-index');
       var inp = document.querySelector('.cart-qty-input[data-index="' + idx + '"]');
-      var v = Math.max(1, parseInt(inp.value, 10) - 1);
+      var v = Math.max(1, (parseInt(inp.value, 10) || 1) - 1);
       inp.value = v;
       var form = new FormData();
       form.append('index', idx);
@@ -165,7 +165,7 @@ $pageTitle = 'Carrito | Mitos Escénicos';
     btn.addEventListener('click', function() {
       var idx = this.getAttribute('data-index');
       var inp = document.querySelector('.cart-qty-input[data-index="' + idx + '"]');
-      var v = parseInt(inp.value, 10) + 1;
+      var v = (parseInt(inp.value, 10) || 1) + 1;
       inp.value = v;
       var form = new FormData();
       form.append('index', idx);

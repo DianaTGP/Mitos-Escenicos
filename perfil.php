@@ -14,8 +14,33 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $telefono = trim((string) ($_POST['telefono'] ?? ''));
     $direccion = trim((string) ($_POST['direccion'] ?? ''));
     if ($nombre !== '') {
-        $stmt = $pdo->prepare('UPDATE usuarios SET nombre = ?, telefono = ?, direccion = ? WHERE id = ?');
-        $stmt->execute([$nombre, $telefono ?: null, $direccion ?: null, $user['id']]);
+        // Manejar subida de imagen de perfil si existe
+        $foto_perfil_url = null;
+        if (isset($_FILES['foto_perfil']) && $_FILES['foto_perfil']['error'] === UPLOAD_ERR_OK) {
+            $tmpName = $_FILES['foto_perfil']['tmp_name'];
+            $fileName = basename($_FILES['foto_perfil']['name']);
+            $ext = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
+            if (in_array($ext, ['jpg', 'jpeg', 'png', 'webp'])) {
+                $uniqueName = 'avatar_' . $user['id'] . '_' . time() . '.' . $ext;
+                $targetPath = __DIR__ . '/media/' . $uniqueName;
+                if (!is_dir(__DIR__ . '/media')) {
+                    mkdir(__DIR__ . '/media', 0755, true);
+                }
+                if (move_uploaded_file($tmpName, $targetPath)) {
+                    $foto_perfil_url = 'media/' . $uniqueName;
+                }
+            } else {
+                $error = 'Formato de imagen no válido. Usa JPG, PNG o WEBP.';
+            }
+        }
+
+        if ($foto_perfil_url) {
+            $stmt = $pdo->prepare('UPDATE usuarios SET nombre = ?, telefono = ?, direccion = ?, foto_perfil = ? WHERE id = ?');
+            $stmt->execute([$nombre, $telefono ?: null, $direccion ?: null, $foto_perfil_url, $user['id']]);
+        } else {
+            $stmt = $pdo->prepare('UPDATE usuarios SET nombre = ?, telefono = ?, direccion = ? WHERE id = ?');
+            $stmt->execute([$nombre, $telefono ?: null, $direccion ?: null, $user['id']]);
+        }
         $_SESSION['usuario_nombre'] = $nombre;
         $success = 'Perfil actualizado correctamente.';
     } elseif (!isset($_POST['cambiar_password'])) {
@@ -45,7 +70,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-$stmt = $pdo->prepare('SELECT nombre, email, telefono, direccion FROM usuarios WHERE id = ?');
+$stmt = $pdo->prepare('SELECT nombre, email, telefono, direccion, foto_perfil FROM usuarios WHERE id = ?');
 $stmt->execute([$user['id']]);
 $datos = $stmt->fetch(PDO::FETCH_ASSOC);
 
@@ -81,6 +106,9 @@ $pageTitle = 'Mi perfil | Mitos Escénicos';
     <a href="<?php echo htmlspecialchars(mitos_url('mis-compras.php')); ?>" class="btn-secondary btn-sm">
       <span class="material-symbols-outlined" style="font-size:1rem;">receipt_long</span> Mis compras
     </a>
+    <a href="<?php echo htmlspecialchars(mitos_url('mis-talleres.php')); ?>" class="btn-secondary btn-sm">
+      <span class="material-symbols-outlined" style="font-size:1rem;">school</span> Mis talleres
+    </a>
     <a href="<?php echo htmlspecialchars(mitos_url('cartelera.php')); ?>" class="btn-secondary btn-sm">
       <span class="material-symbols-outlined" style="font-size:1rem;">theaters</span> Cartelera
     </a>
@@ -91,8 +119,20 @@ $pageTitle = 'Mi perfil | Mitos Escénicos';
 
   <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:2rem; align-items:start;">
   <div style="max-width:480px;">
-  <h1 style="font-size:1.75rem; font-weight:800; color:#fff; margin-bottom:0.5rem;">Mi perfil</h1>
-  <p style="color:var(--text-muted); margin-bottom:1.5rem;">Actualiza tus datos personales.</p>
+  <!-- Avatar display estilo red social -->
+  <div style="display:flex; align-items:center; gap:1.5rem; margin-bottom:1.5rem;">
+      <div style="width:100px; height:100px; border-radius:50%; overflow:hidden; border:3px solid var(--gold); background:rgba(255,255,255,0.05); display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+          <?php if (!empty($datos['foto_perfil'])): ?>
+              <img src="<?php echo htmlspecialchars($datos['foto_perfil']); ?>" alt="Tu foto de perfil" style="width:100%; height:100%; object-fit:cover;"/>
+          <?php else: ?>
+              <span class="material-symbols-outlined" style="font-size:3rem; color:var(--text-muted);">person</span>
+          <?php endif; ?>
+      </div>
+      <div>
+          <h1 style="font-size:1.75rem; font-weight:800; color:#fff; margin-bottom:0.25rem;">Mi perfil</h1>
+          <p style="color:var(--text-muted); margin:0;">Bienvenido, <?php echo htmlspecialchars($datos['nombre'] ?? ''); ?>.</p>
+      </div>
+  </div>
 
   <?php if ($error): ?>
     <div class="alert alert-error"><?php echo htmlspecialchars($error); ?></div>
@@ -101,7 +141,11 @@ $pageTitle = 'Mi perfil | Mitos Escénicos';
     <div class="alert alert-success"><?php echo htmlspecialchars($success); ?></div>
   <?php endif; ?>
 
-  <form method="post" action="" style="max-width: 480px;">
+  <form method="post" action="" enctype="multipart/form-data" style="max-width: 480px; margin-top:2rem;">
+    <div style="margin-bottom: 1rem;">
+      <label style="display: block; font-size: 0.875rem; color: var(--text-muted); margin-bottom: 0.25rem;">Cambiar foto de perfil (JPG, PNG)</label>
+      <input type="file" name="foto_perfil" accept="image/*" style="width:100%; padding:0.5rem; background:rgba(255,255,255,0.05); color:#fff; border-radius:0.4rem;"/>
+    </div>
     <div style="margin-bottom: 1rem;">
       <label style="display: block; font-size: 0.875rem; color: var(--text-muted); margin-bottom: 0.25rem;">Nombre completo *</label>
       <input type="text" name="nombre" required value="<?php echo htmlspecialchars($datos['nombre'] ?? ''); ?>"/>
